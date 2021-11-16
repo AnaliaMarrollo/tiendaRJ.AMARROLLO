@@ -1,0 +1,13 @@
+.navbar-brand {
+  font-weight: 800;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.active {
+  background-color: #e6c3db;
+  font-weight: bolder;
+}
+/*# sourceMappingURL=NavBar.css.map */
