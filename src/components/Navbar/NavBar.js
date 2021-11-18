@@ -1,5 +1,6 @@
 import React from "react";
 import "../Navbar/NavBar.scss";
+import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar() {
   return (
@@ -31,8 +32,8 @@ function NavBar() {
               <a className="nav-link" href="#">
                 Contacto
               </a>
-              <a className="nav-link" href="#">
-                Carrito
+              <a className="nav-link rounded" href="#">
+                <CartWidget />
               </a>
             </div>
           </div>
