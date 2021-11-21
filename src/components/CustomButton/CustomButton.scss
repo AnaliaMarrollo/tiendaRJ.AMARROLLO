@@ -1,0 +1,10 @@
+@import "../../custom";
+
+.btn-custom {
+    border: solid $color-pink .2rem;
+    background-color: $color-pink;
+    &:hover{
+        border: solid darken($color-pink, 20%) .2rem;
+        background-color: darken($color-pink, 20%);
+    }
+}
