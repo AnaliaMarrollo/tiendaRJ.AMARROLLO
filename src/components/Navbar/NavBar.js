@@ -5,7 +5,7 @@ import CartWidget from "../CartWidget/CartWidget";
 function NavBar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
            B A K E R Y

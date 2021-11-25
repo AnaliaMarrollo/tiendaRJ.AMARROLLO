@@ -1,10 +1,12 @@
 import React from 'react'
-
-function ItemList() {
+import Item from '../../components/Item/Item'
+function ItemList({products}) {
     return (
-        <div>
-            
-        </div>
+        <>
+            {products.map((product => {
+                return <Item product= {product}/>
+            }))}
+        </>
     )
 }
 
