@@ -2,15 +2,26 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Navbar/NavBar";
 import ItemListContainer from "./containers/ItemListContainer/ItemListContainer";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
+
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-
-      <ItemListContainer greeting="¡Hola! Muy pronto publicaremos nuestros productos" />
-
-    </div>
+  return (    
+     <> 
+      <Router>
+        <NavBar />
+      <Switch>
+        <Route exact path='/'>
+        </Route>
+        {/* <Route path='/productos' component={ItemListContainer}/> */}
+        <Route path='/productos' component={ItemDetailContainer}/>
+        <Route path='/contacto'>
+        </Route> 
+      </Switch>
+      </Router>
+            {/* <Footer /> */}
+    </>
   );
 }
 

@@ -1,15 +1,18 @@
 import React from "react";
 import "../Navbar/NavBar.scss";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink } from "react-router-dom"
 
 function NavBar() {
+
+
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <NavLink to={"/"} className="navbar-brand" id="brand" >
            B A K E R Y
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,18 +26,30 @@ function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav justify-content-end">
-              <a className="nav-link active rounded" aria-current="page" href="#">
+              <NavLink to={"/"} className="nav-link rounded" id="home">
                 Inicio
-              </a>
-              <a className="nav-link" href="#">
+              </NavLink>
+              <NavLink to={"/productos"} className="nav-link" id="productos">
                 Productos
-              </a>
-              <a className="nav-link" href="#">
+              </NavLink>
+              <NavLink to={"/category/tortasytartas"} className="nav-link" id="productos">
+                Tortas & Tartas
+              </NavLink>
+              <NavLink to={"/category/budines"} className="nav-link" id="productos">
+                Budines
+              </NavLink>
+              <NavLink to={"/category/cookies"} className="nav-link" id="productos">
+                Cookies
+              </NavLink>
+              <NavLink to={"/category/especiales"} className="nav-link" id="productos">
+                Especiales ♡
+              </NavLink>
+              <NavLink  to={"/contacto"}className="nav-link" id="contacto">
                 Contacto
-              </a>
-              <a className="nav-link rounded" href="#">
+              </NavLink>
+              <NavLink  to={"/cart"}className="nav-link rounded">
                 <CartWidget />
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
