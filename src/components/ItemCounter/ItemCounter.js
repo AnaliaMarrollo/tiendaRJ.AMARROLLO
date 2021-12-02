@@ -17,7 +17,7 @@ export default function ItemCounter({initial,stock,onAdd}) {
   };
 
   return (
-    <div className="m-1 d-flex justify-content-center align-items-center item-count-container">
+    <div className="m-1 d-flex justify-content-start align-items-center item-count-container">
       <CustomButton
         textButton={"-"}
         handleClick={onDecrement}

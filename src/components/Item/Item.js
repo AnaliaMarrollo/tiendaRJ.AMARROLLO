@@ -1,6 +1,8 @@
 import React from 'react'
 import CustomButton from '../CustomButton/CustomButton'
+import { Link } from 'react-router-dom'
 
+//Styles
 import './Item.scss'
 
 const Item = ({product, onViewDetail}) => {
@@ -10,10 +12,12 @@ const Item = ({product, onViewDetail}) => {
             <img src={product.img} alt="foto producto" className="img-product" />
             <h4 className="product-presentation text-center mt-1">Presentación: {product.presentation}</h4>
             <h5 className="product-stock text-center mt-1">Stock disponible {product.stock} unidades</h5>
-            <CustomButton
+            <Link to={`/item/${product.id}`} className="link-btn-detail d-flex justity-content-center">
+                <CustomButton
                 handleClick={onViewDetail}
                 textButton={"Ver Detalle"}
             />
+            </Link>
         </div>
     )
 }

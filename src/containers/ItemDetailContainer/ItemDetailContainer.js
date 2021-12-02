@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import getItem from '../../services/getItem'
 
@@ -7,16 +8,17 @@ import "./ItemDetailContainer.scss"
 
 const ItemDetailContainer = () => {
 
-    const [loading, setLoading]=useState(false)
-    const [productDetail, setProductDetail] = useState([])
+    const { id } = useParams();
+    const [loading, setLoading] = useState(false);
+    const [productDetail, setProductDetail] = useState([]);
 
     useEffect(() => {
         setLoading(true)
 
-        getItem("3")
+        getItem(id)
             .then((res) => {
-                setProductDetail(res)
-                console.log("detalle producto id-3",res)
+            setProductDetail(res)
+            console.log("detalle producto por id",res)
             })
             .catch((error) => {
             console.log(error)
@@ -24,7 +26,7 @@ const ItemDetailContainer = () => {
             .finally(() => {
             setLoading(false)
         })
-    }, [])
+    }, [id])
 
 
     return (
