@@ -4,7 +4,7 @@ Este proyecto simula un e-commerce de una tienda de pastelería. El sitio está 
 
 ## Navegación
 La barra de navegación ofrece links al catálogo completo y a las distintas categorías de productos. En cualquier selección de:  *"Tortas & Tartas", "Budines" y "Cookies"* se renderiza el componente *ItemListContainer*, que muestra productos distintos según un filtro en el **"ListOfProducts.json"**. 
-"Inicio" y "Nuestros Productos" renderiza el componente *ItemListContainer* mostrando la totalidad de productos en el **"ListOfProducts.json"**.
+*"Inicio" y "Nuestros Productos"* renderiza el componente *ItemListContainer* mostrando la totalidad de productos en el **"ListOfProducts.json"**.
 Cada producto es un componente *Item*. La categoría a filtrar se toma usando *useParams()*.
 Ingresar manualmente las url permite acceder a las distintas secciones del sitio (/category/'tiposDeProducto', /cart, /item/'producto', etc.). Ingresar una url no reconocida renderiza el componente *Error404* que contiene un botón para volver al inicio y para evitar errores.
 
@@ -21,8 +21,6 @@ Hace un llamado a **"ListOfProducts.json"** y retorna un array con todos los pro
 * React Router DOM
 * Fontawesome
 * Bootstrap
-
----
 
 ## Compilación
 Para levantar el proyecto en localhost ejecutar `npm start`. 

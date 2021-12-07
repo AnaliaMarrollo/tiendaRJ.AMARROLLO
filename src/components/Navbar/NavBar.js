@@ -30,7 +30,7 @@ function NavBar() {
               <NavLink exact to={"/"}  activeClassName={"activeLink"} className="nav-link" id="home">
                 Inicio
               </NavLink>
-              <NavLink exact to={"/"}  activeClassName={"activeLink"} className="nav-link" id="productos">
+              <NavLink exact to={"/nuestrosProductos"}  activeClassName={"activeLink"} className="nav-link" id="productos">
                 Nuestros Productos
               </NavLink>
               <NavLink exact to={"/category/tortas"}  activeClassName={"activeLink"} className="nav-link" id="tortas">
@@ -45,11 +45,11 @@ function NavBar() {
               <NavLink exact to={"/takeaway"}  activeClassName={"activeLink"} className="nav-link" id="takeaway">
                 Take Away ♡
               </NavLink>
-              <NavLink  exact to={'/contacto'}  activeClassName={"activeLink"} className="nav-link" id="contacto">
+              <NavLink  exact to={"/contacto"}  activeClassName={"activeLink"} className="nav-link" id="contacto">
                 Contacto
               </NavLink>
               <NavLink  exact to={"/cart"} activeClassName={"activeLink"} className="nav-link rounded">
-                <CartWidget/>
+                <CartWidget />
               </NavLink>
             </div>
           </div>

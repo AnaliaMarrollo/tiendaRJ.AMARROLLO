@@ -4,6 +4,16 @@ import cookies from '../../assets/img.json/cookies.jpg'
 import lemonPie from '../../assets/img.json/lemon-pie.jpg'
 import budin from '../../assets/img.json/budin-vainilla-pasas.jpg'
 import gingerCookies from '../../assets/img.json/ginger-cookies.jpg'
+import cheesecakeLimon from '../../assets/img.json/cheesecake-limon.jpg'
+import cheesecakeNy from '../../assets/img.json/cheesecake-ny.jpg'
+import donasEspeciales from '../../assets/img.json/donas-especiales.jpg'
+import donas from '../../assets/img.json/donas-tradicionales.jpg'
+import lemonies from '../../assets/img.json/lemonies.jpg'
+import matilda from '../../assets/img.json/matilda.jpg'
+import pastaFrola from '../../assets/img.json/pasta-frola.jpg'
+import pastaFrolaDdl from '../../assets/img.json/pasta-frola-ddl.jpg'
+import selvaNegra from '../../assets/img.json/selva-negra.jpg'
+import tartaManzana from '../../assets/img.json/tarta-manzana.jpg'
 
 const ListOfProducts = [{
         "id": "1",
@@ -82,10 +92,138 @@ const ListOfProducts = [{
         "vegan": false,
         "fit": false,
         "img": gingerCookies,
-        "stock": 5
+        "stock": 5,
+    },
+    {
+        "id": "7",
+        "name": "Cheesecake de Limón",
+        "category": "tortas",
+        "description": "Cheesecake de Limón",
+        "presentation": "Porción individual",
+        "price": 650,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": cheesecakeLimon,
+        "stock": 20,
+    },
+    {
+        "id": "8",
+        "name": "Cheesecake NY",
+        "category": "tortas",
+        "description": "Cheesecake NY",
+        "presentation": "Porción individual",
+        "price": 650,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": cheesecakeNy,
+        "stock": 20,
+    },
+    {
+        "id": "9",
+        "name": "Donas especiales",
+        "category": "cookies",
+        "description": "Donas especiales",
+        "presentation": "Por unidad",
+        "price": 150,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": donasEspeciales,
+        "stock": 24,
+    },
+    {
+        "id": "10",
+        "name": "Donas",
+        "category": "cookies",
+        "description": "Donas",
+        "presentation": "Por unidad",
+        "price": 100,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": donas,
+        "stock": 18,
+    },
+    {
+        "id": "11",
+        "name": "Lemonies. Opción sin TACC",
+        "category": "tortas",
+        "description": "Lemonies",
+        "presentation": "Porción individual",
+        "price": 350,
+        "noTacc": true,
+        "vegan": false,
+        "fit": false,
+        "img": lemonies,
+        "stock": 15,
+    },
+    {
+        "id": "12",
+        "name": "Torta Matilda",
+        "category": "tortas",
+        "description": "Torta matilda",
+        "presentation": "Porción individual",
+        "price": 650,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": matilda,
+        "stock": 10,
+    },
+    {
+        "id": "13",
+        "name": "Pasta Frola Tradicional. Opción membrillo/batata",
+        "category": "tortas",
+        "description": "Pasta frola",
+        "presentation": "Porción individual",
+        "price": 450,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": pastaFrola,
+        "stock": 8,
+    },
+    {
+        "id": "14",
+        "name": "Pasta Frola Dulce de Leche",
+        "category": "tortas",
+        "description": "Pasta frola",
+        "presentation": "Porción individual",
+        "price": 450,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": pastaFrolaDdl,
+        "stock": 8,
+    },
+    {
+        "id": "15",
+        "name": "Selva Negra",
+        "category": "tortas",
+        "description": "Selva Negra",
+        "presentation": "Porción individual",
+        "price": 650,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": selvaNegra,
+        "stock": 10,
+    },
+    {
+        "id": "16",
+        "name": "Tarta de Manzana",
+        "category": "tortas",
+        "description": "Tarta de Manzana",
+        "presentation": "Porción individual",
+        "price": 450,
+        "noTacc": false,
+        "vegan": false,
+        "fit": false,
+        "img": tartaManzana,
+        "stock": 12,
     }
-
-
 ]
 
 export default ListOfProducts;

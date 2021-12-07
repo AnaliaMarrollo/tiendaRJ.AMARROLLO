@@ -14,7 +14,7 @@ const Item = ({product, onViewDetail}) => {
             <h5 className="product-stock text-center mt-1">Stock disponible {product.stock} unidades</h5>
             <Link to={`/item/${product.id}`} className="link-btn-detail d-flex justity-content-center">
                 <CustomButton
-                handleClick={onViewDetail}
+                onClick={onViewDetail}
                 textButton={"Ver Detalle"}
             />
             </Link>
