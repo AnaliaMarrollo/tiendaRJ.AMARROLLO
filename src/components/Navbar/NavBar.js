@@ -3,7 +3,7 @@ import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom"
 
 //Styles
-import "../Navbar/NavBar.scss";
+import "./NavBar.scss";
 
 function NavBar() {
 

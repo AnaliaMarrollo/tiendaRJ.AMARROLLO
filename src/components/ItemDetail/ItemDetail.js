@@ -1,7 +1,8 @@
-import React, { useState} from "react";
-import ItemCounter from "../../components/ItemCounter/ItemCounter";
+import React, { useState, useContext } from "react";
+import ItemCounter from "../ItemCounter/ItemCounter";
 import { useHistory } from "react-router-dom";
 import CustomButton from "../CustomButton/CustomButton";
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({
   id,
@@ -13,35 +14,38 @@ const ItemDetail = ({
   ingredients,
   stock,
 }) => {
-
-  //useStory for buttons: go Back, go to Home and go to Cart  
+  //useStory for buttons: go Back, go to Home and go to Cart
   const { push, goBack } = useHistory();
 
-  //STATES    
+  //STATES
   const [quantity, setQuantity] = useState(1);
-  const [carrito, setCarrito] = useState([]);
-  const [buy, setBuy] = useState(false);
 
-  //FUNCTION: add item to cart  
-  const addToCart = (item) => {
-    setCarrito([...carrito, item]);
-    setBuy(true);
-  };
+  //CONTEXT
+  const { addToCart, productInCart } = useContext(CartContext);
 
-  //FUNCTION: create a new object item    
+  //FUNCTION: create a new object item
   const handleAdd = () => {
-    const newItem = {
-      id,
-      name,
-      price,
-      quantity
-    };
 
-    addToCart(newItem);
+    if (productInCart(id)) {
 
+      alert("el producto ya se encuentra en el carrito");
+      
+    } else {
+
+      if (quantity > 0) {
+        const newItem = {
+          id,
+          name,
+          price,
+          img,
+          presentation,
+          quantity,
+        };
+
+        addToCart(newItem);
+      }
+    }
   };
-
-  console.log("Carrito", carrito);
 
   return (
     <>
@@ -63,8 +67,8 @@ const ItemDetail = ({
               </p>
               <p className="product-ingredients">Ingredientes: {ingredients}</p>
               <p className="product-price">${price}</p>
-            
-              {buy ? (
+
+              {productInCart(id) ? (
                 <>
                   <CustomButton
                     textButton={"Finalizar Compra"}
@@ -76,7 +80,7 @@ const ItemDetail = ({
                   {/* ItemCounter recibe el quantity y setQuantity que se modifican desde el componte ItemCounter */}
 
                   <ItemCounter
-                    quantity={quantity} 
+                    quantity={quantity}
                     modifyQuantity={setQuantity}
                     stock={stock}
                   />
@@ -86,19 +90,17 @@ const ItemDetail = ({
                     onClick={handleAdd}
                     disabled={setQuantity > stock}
                   />
-                  <p className="product-stock">
-                    Stock disponible: {stock} unidades
-                  </p>
-                  <CustomButton
-                    textButton={"Volver"}
-                    onClick={() => goBack()}
-                  />
-                  <CustomButton
-                    textButton={"Volver al inicio"}
-                    onClick={() => push("/")}
-                  />
                 </>
               )}
+
+              <p className="product-stock mt-1">
+                Stock disponible: {stock} unidades
+              </p>
+              <CustomButton textButton={"Volver"} onClick={() => goBack()} />
+              <CustomButton
+                textButton={"Volver al inicio"}
+                onClick={() => push("/")}
+              />
             </div>
           </div>
         </div>
