@@ -1,36 +1,53 @@
 import React,{useContext} from 'react'
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../CartItem/CartItem'
+import CustomButton from '../CustomButton/CustomButton'
+import { useHistory } from 'react-router'
 
 //Styles
 import "./CartView.scss"
 
 const CartView = () => {
 
-    const { carrito } = useContext(CartContext);
-    
+    const { carrito, totalPurchase } = useContext(CartContext);
+    const { push } = useHistory();
 
     return (
-        <div className="cart-view d-flex row justify-content-start my-5">
+        <div className="cart-view-container">
+        <div className="cart-view rounded">
             
                 {carrito.length === 0
+                    
                 ?
                 <>
-                    <h3 className="my-5">No agregaste productos al carrito</h3>
+                    <h3 className="cart-view-no-products">EL CARRITO DE COMPRAS ESTÁ VACÍO</h3>
+
+                  <CustomButton
+                    textButton={"Ir a Comprar"}
+                    onClick={() => push("/nuestrosProductos")}
+                    />
+                    
                 </>
                     :
                  <>
-                    <h2 className="m-5">RESUMEN DE COMPRA</h2>
-                        <section>
+                        <h2 className="cart-view-title">RESUMEN DE COMPRA</h2>
+                        
                         {
                             carrito.map((productos) => <CartItem {...productos} />)
                         
                         }
-                        </section>
-</>
+
+                    <h3 className="cart-view-total">Total: $ { totalPurchase() }</h3>
+
+                    <CustomButton
+                        textButton={"Finalizar Compra"}
+                        className="btn-purchase"
+                    /> 
+                </>
             }
 
-        </div>
+            </div>
+            </div>
             )
 }
 

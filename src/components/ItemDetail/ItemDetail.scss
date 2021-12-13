@@ -1,0 +1,14 @@
+@import '../../custom';
+
+.item-detail-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    box-shadow: $container-shadow;
+    border: none;
+    margin: 0 auto;
+}

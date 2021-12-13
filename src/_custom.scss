@@ -1,4 +1,15 @@
 //colors
-$color-pink: #e6c3db;
-$color-mint: #83c1b4;
-$color-cherry: #cb042c;
+$color-pink: #ffa5d8;
+// $color-mint: #83c1b4;
+// $color-cherry: #cb042c;
+
+$color-light-blue:#7eb8da; 
+$color-light-aqua: #92ddea;
+$color-lila: #be9ddf;
+$color-violet: #9579d1;
+
+$color-light-black:lighten(black, 20%);
+
+//shadows
+$element-shadow: 0 0 .75rem rgba(0, 0, 0, 0.7);
+$container-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);

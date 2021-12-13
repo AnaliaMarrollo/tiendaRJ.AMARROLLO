@@ -1,5 +1,7 @@
 import React from 'react'
 
+//STYLES 
+import "./HomePage.scss"
 const HomePage = () => {
     return (
         <div className="home-page d-flex justify-content-start my-5">

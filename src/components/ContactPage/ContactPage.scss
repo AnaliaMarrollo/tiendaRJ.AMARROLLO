@@ -1,0 +1,45 @@
+@import '../../custom';
+
+.contact-page-container {
+    min-height: 100vh;
+}
+
+.form {
+    &-container {
+        margin-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+            &-input {
+                margin-top: 1rem;
+
+                &-comments {
+                    resize: none;
+                }
+            }
+
+    &-error{
+        font-size: .8rem;
+        font-weight: bolder;
+        color: darken($color-violet,10%);
+        margin: .25rem;
+
+    }
+}
+
+.form .btn-form-submit {
+    //SUBMIT STYLES!
+    border: solid .25rem $color-violet;
+    background-color: whitesmoke;
+    color: $color-violet;
+    border-radius: .25rem;
+    font-weight: bolder;
+
+    &:hover {
+        background-color: $color-violet;
+        color: whitesmoke;
+    }
+}

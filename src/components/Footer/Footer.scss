@@ -1,0 +1,59 @@
+@import "../../custom";
+
+.footer {
+    &-container {
+        background-color: lighten($color-pink, 5%);
+        color: $color-light-black;
+        text-align: left;
+        font-weight: bolder;
+        min-height: 10rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &-header {
+        margin: 2rem;
+    }
+
+    &-icon {
+        font-size: 1.2rem;
+        margin: 0 .5rem;
+        color: $color-light-black;
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 1.2rem;
+        &-redes{
+            margin-left: 1.7rem;
+        }
+        &-copyright{
+            justify-content: flex-end;
+            margin-top: 2rem;
+            margin-right: 1.2rem;
+        }
+    }
+
+    &-text {
+        font-size: 1rem;
+        &-span{
+            color: $color-light-black;
+            font-weight: 400;
+        }
+        &-copyright{
+            font-size: .8rem;
+        }
+    }
+
+    &-link {
+        text-decoration: none;
+        color: $color-light-black;
+
+        &:hover {
+            color: whitesmoke;
+        }
+    }
+}

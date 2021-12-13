@@ -9,13 +9,14 @@ import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailCont
 import Error404 from "./containers/Error404/Error404";
 import CartView from "./components/CartView/CartView";
 import {CartProvider} from './context/CartContext'
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
       
       <CartProvider>
-        
-        <BrowserRouter>
+      
+      <BrowserRouter>
         
         <NavBar />
 
@@ -30,7 +31,9 @@ function App() {
           <Route path='*' component={Error404}/>
         </Switch>
 
-        </BrowserRouter>
+        <Footer/>
+        
+      </BrowserRouter>
         
     </CartProvider>
   )

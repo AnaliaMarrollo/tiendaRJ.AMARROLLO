@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
 
     return (
         loading ?
-            <Loader/>
+            <Loader textLoader={ "Cargando..." }/>
             :
             <div className="item-detail-container d-flex justify-content-center">
                 <ItemDetail {...productDetail} />

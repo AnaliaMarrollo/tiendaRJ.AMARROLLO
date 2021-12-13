@@ -4,7 +4,8 @@
     border: solid black .2rem;
     background-color: black;
     &:hover{
-        border: solid lighten(black, 20%) .2rem;
-        background-color: lighten(black, 20%);
+        border: solid $color-violet .2rem;
+        background-color: $color-violet;
     }
+    outline: none;
 }

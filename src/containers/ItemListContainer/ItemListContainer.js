@@ -41,7 +41,7 @@ function ItemListContainer(props) {
     return (
 
         loading ?
-            <Loader/>
+            <Loader textLoader={ "Cargando..." }/>
             : 
         <div className="d-flex row wrap align-items-center justify-content-center container-item-list">
            <ItemList products={products} />

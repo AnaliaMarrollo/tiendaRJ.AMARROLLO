@@ -14,8 +14,18 @@
 
 .activeLink {
     font-weight: bolder;
+    border-left: solid .3rem $color-pink;
+    border-right: solid .3rem $color-pink;
 }
 
 .activeLinkBrand {
     background-color: none;
+}
+
+.activeLinkCart {
+    border: none;
+}
+
+.no-cart {
+    width: 3rem;
 }

@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import CartWidget from "../CartWidget/CartWidget";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 //Styles
 import "./NavBar.scss";
 
+
 function NavBar() {
+
+  const { carrito } = useContext(CartContext);
 
   return (
     <div>
@@ -48,9 +52,15 @@ function NavBar() {
               <NavLink  exact to={"/contacto"}  activeClassName={"activeLink"} className="nav-link" id="contacto">
                 Contacto
               </NavLink>
-              <NavLink  exact to={"/cart"} activeClassName={"activeLink"} className="nav-link rounded">
-                <CartWidget />
-              </NavLink>
+              {carrito.length === 0
+                ?
+                <div className="no-cart">
+                </div>
+                :
+                <NavLink exact to={"/cart"} activeClassName={"activeLinkCart"} className="nav-link rounded">
+                  <CartWidget />
+                </NavLink>
+              }
             </div>
           </div>
         </div>

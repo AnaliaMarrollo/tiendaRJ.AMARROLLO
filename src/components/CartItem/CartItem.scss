@@ -1,11 +1,29 @@
+@import "../../custom";
+
 .trash-product{
-    color: black;
+    color: $color-violet;
 }
 
-.cart-item-container{
-    width: 90%;
-}
+.cart-item {
 
-.cart-item{
     font-size: 1rem;
+
+    &-container {
+        width: 100%;
+        margin: 1.5rem 0;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        border-bottom: solid .1rem;
+
+        &-details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    &-strong {
+        font-weight: bolder;
+    }
 }
