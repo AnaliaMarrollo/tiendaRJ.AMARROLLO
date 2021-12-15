@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react'
 
 export const CartContext = createContext()
 
-export const CartProvider = ({ children, quantity }) => {
+export const CartProvider = ({ children}) => {
     
 const [carrito, setCarrito] = useState([]);
 
@@ -21,6 +21,22 @@ const [carrito, setCarrito] = useState([]);
     return carrito.some((buscaProducto) => buscaProducto.id === id);
   };
 
+//INCREMENT QUANTITY   
+  const incrementQuantity = (id) => {
+    const indxIQ = carrito.findIndex(buscarIndex => buscarIndex.id === id);
+    let newCarrito = [...carrito];
+    newCarrito[indxIQ].quantity = newCarrito.quantity + 1;
+    setCarrito(newCarrito);
+  }
+  
+//DECREMENT QUANTITY
+  const decrementQuantity = (id) => {
+    const indxDQ = carrito.findIndex(buscarIndex => buscarIndex.id === id);
+    
+    let newCarrito = [...carrito];
+    newCarrito[indxDQ].quantity = newCarrito.quantity + 1;
+    setCarrito(newCarrito);
+  }  
 
 //CLEAR 
   const emptyCart = () => {
@@ -43,6 +59,8 @@ const [carrito, setCarrito] = useState([]);
           carrito,
           addToCart,
           productInCart,
+          incrementQuantity,
+          decrementQuantity,
           removeFromCart,
           emptyCart,
           totalQuantity,

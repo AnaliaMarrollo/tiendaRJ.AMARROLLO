@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "../Hooks/useForm";
 import Loader from "../Loader/Loader";
 
@@ -65,35 +65,20 @@ const ContactPage = () => {
     errors,
     loading,
     response,
-      handleBlur,
+    handleBlur,
     handleInput,
     handleChange,
     handleSubmit,
   } = useForm(initialForm, validationsForm);
-
-  // const [values, setValues] = useState({
-  //     name: "",
-  //     surname: "",
-  //     email: ""
-  // });
-
-  // const handleInputChange = (e) => {
-  //     setValues({
-  //         ...values,
-  //         [e.target.name]: e.target.value
-  //     })
-  // }
-
-  // const handleSubmit = (e) => {
-  //     e.preventDefault();
-  // }
 
   return (
     <div className="contact-page-container my-5">
       <form className="form-container" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
-          className="form-input"
+          className={
+            ((errors.name !== null) && (errors.name ? "form-input form-input-errors" : "form-input form-input-ok"))
+          }
           name="name"
           value={form.name}
           type="text"

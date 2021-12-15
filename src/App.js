@@ -10,6 +10,7 @@ import Error404 from "./containers/Error404/Error404";
 import CartView from "./components/CartView/CartView";
 import {CartProvider} from './context/CartContext'
 import Footer from "./components/Footer/Footer";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (
@@ -27,11 +28,12 @@ function App() {
           <Route exact path="/item/:id" component={ItemDetailContainer}/>
           <Route exact path="/takeaway" />
           <Route exact path="/contacto" component={ContactPage}/>
-          <Route exact path="/cart" component={CartView}/>
+          <Route exact path="/cart" component={CartView} />
+          <Route exact path="/checkout" component={Checkout}/>
           <Route path='*' component={Error404}/>
         </Switch>
 
-        <Footer/>
+        <Footer />
         
       </BrowserRouter>
         

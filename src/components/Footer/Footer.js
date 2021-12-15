@@ -1,5 +1,5 @@
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faMapMarkerAlt, faMapPin, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,7 @@ const Footer = () => {
         <>
             <footer id="footer" className="footer-container">
 
-                <Link exact to={"/"} className="footer-text footer-link footer-header" >
+                <Link to={"/"} className="footer-text footer-link footer-header" >
                 B A K E R Y ♡
                 </Link>
 

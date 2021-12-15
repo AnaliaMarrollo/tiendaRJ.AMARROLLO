@@ -61,6 +61,16 @@ function NavBar() {
                   <CartWidget />
                 </NavLink>
               }
+                {/* <NavLink exact to={"/signin"}  activeClassName={"activeLink"} className="nav-link" id="signIn">
+                  SignIn 
+                </NavLink>
+                <NavLink>
+                  SignUp 
+                </NavLink>
+                <NavLink>
+                  Logout 
+                </NavLink> */}
+             
             </div>
           </div>
         </div>

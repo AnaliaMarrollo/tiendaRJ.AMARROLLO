@@ -9,7 +9,7 @@ import "./CartView.scss"
 
 const CartView = () => {
 
-    const { carrito, totalPurchase } = useContext(CartContext);
+    const { carrito, totalPurchase, emptyCart } = useContext(CartContext);
     const { push } = useHistory();
 
     return (
@@ -33,12 +33,18 @@ const CartView = () => {
                         <h2 className="cart-view-title">RESUMEN DE COMPRA</h2>
                         
                         {
-                            carrito.map((productos) => <CartItem {...productos} />)
+                            carrito.map((productos) => <CartItem {...productos} key={ productos.id }/>)
                         
                         }
 
                     <h3 className="cart-view-total">Total: $ { totalPurchase() }</h3>
 
+                        
+                    <CustomButton
+                            textButton={"Vaciar Carrito"}
+                            onClick={()=>emptyCart()}
+                        />
+                        
                     <CustomButton
                         textButton={"Finalizar Compra"}
                         className="btn-purchase"

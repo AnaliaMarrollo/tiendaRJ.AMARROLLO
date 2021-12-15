@@ -1,19 +1,26 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import CustomButton from '../CustomButton/CustomButton';
+import { CartContext } from '../../context/CartContext';
+
+//STYLES
 import './ItemCounter.scss'
 
-export default function ItemCounter({ quantity, modifyQuantity, stock}) {
+export default function ItemCounter({ id, quantity, modifyQuantity, stock}) {
   
+  const {incrementQuantity, decrementQuantity } = useContext(CartContext)
+
   //quantity y modifyQuantity estado en el ItemDetail
   const onIncrement = () => {
     if (quantity < stock && quantity >= 1) {
       modifyQuantity(quantity + 1);
+      incrementQuantity(id);
     }
   };
 
   const onDecrement = () => {
     if (quantity > 1) {
       modifyQuantity(quantity - 1);
+      decrementQuantity(id);
     }
   };
 
@@ -22,7 +29,7 @@ export default function ItemCounter({ quantity, modifyQuantity, stock}) {
       <CustomButton
         textButton={"-"}
         onClick={onDecrement}
-        disabled={quantity ===1}
+        disabled={quantity === 1}
       />
 
       <span>{quantity}</span>

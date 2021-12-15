@@ -15,6 +15,15 @@
 
             &-input {
                 margin-top: 1rem;
+                width: 20rem ;
+                
+                &-errors{
+                    border: solid $color-violet .3rem;
+                }
+
+                &-ok{
+                    border: solid $color-pink .3rem;
+                }
 
                 &-comments {
                     resize: none;
