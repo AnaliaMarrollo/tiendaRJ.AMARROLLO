@@ -26,15 +26,16 @@ const [carrito, setCarrito] = useState([]);
     const indxIQ = carrito.findIndex(buscarIndex => buscarIndex.id === id);
     let newCarrito = [...carrito];
     newCarrito[indxIQ].quantity = newCarrito.quantity + 1;
+    console.log(indxIQ)
     setCarrito(newCarrito);
   }
   
 //DECREMENT QUANTITY
   const decrementQuantity = (id) => {
     const indxDQ = carrito.findIndex(buscarIndex => buscarIndex.id === id);
-    
     let newCarrito = [...carrito];
     newCarrito[indxDQ].quantity = newCarrito.quantity + 1;
+    console.log(indxDQ)
     setCarrito(newCarrito);
   }  
 

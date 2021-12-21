@@ -5,22 +5,19 @@ import { CartContext } from '../../context/CartContext';
 //STYLES
 import './ItemCounter.scss'
 
-export default function ItemCounter({ id, quantity, modifyQuantity, stock}) {
-  
-  const {incrementQuantity, decrementQuantity } = useContext(CartContext)
+export default function ItemCounter({ quantity, modifyQuantity, stock }) {
 
   //quantity y modifyQuantity estado en el ItemDetail
+  
   const onIncrement = () => {
     if (quantity < stock && quantity >= 1) {
       modifyQuantity(quantity + 1);
-      incrementQuantity(id);
     }
   };
 
   const onDecrement = () => {
     if (quantity > 1) {
       modifyQuantity(quantity - 1);
-      decrementQuantity(id);
     }
   };
 

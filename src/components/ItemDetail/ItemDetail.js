@@ -39,6 +39,7 @@ const ItemDetail = ({
           img,
           presentation,
           quantity,
+          stock
         };
 
         addToCart(newItem);
@@ -81,25 +82,28 @@ const ItemDetail = ({
                   </>
                 ) : (
                   <>
-                    {/* ItemCounter recibe el quantity y setQuantity que se modifican desde el componte ItemCounter */}
-
-                    <ItemCounter
-                      quantity={quantity}
-                      modifyQuantity={setQuantity}
-                      stock={stock}
-                    />
-
-                    <CustomButton
-                      textButton={"Agregar al Carrito"}
-                      onClick={handleAdd}
-                      disabled={setQuantity > stock}
-                    />
-                  </>
-                )}
-
-                <p className="product-stock mt-1">
-                  Stock disponible: {stock} unidades
-                </p>
+                      {stock === 0 ?
+                        <><p className="product-stock mt-1">SIN STOCK</p></>
+                        : <>
+                          <ItemCounter
+                          quantity={quantity}
+                          modifyQuantity={setQuantity}
+                          stock={stock}
+                        />
+                        <p className="product-stock mt-1">
+                        Stock disponible: {stock} unidades
+                        </p>
+                        <CustomButton
+                          textButton={"Agregar al Carrito"}
+                          onClick={handleAdd}
+                          disabled={setQuantity > stock}
+                        />
+                        </>
+                      }
+                        
+                    </>    
+                      )
+                }
                 <CustomButton textButton={"Volver"} onClick={() => goBack()} />
                 <CustomButton
                   textButton={"Volver al inicio"}

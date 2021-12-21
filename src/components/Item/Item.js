@@ -14,8 +14,10 @@ const Item = ({product}) => {
             {product.fit && <h5 className="product-option d-flex align-items-center text-center">Opción fit</h5>}
             <img src={product.img} alt="foto producto" className="img-product" />
             <h4 className="product-presentation text-center mt-1">Presentación: {product.presentation}</h4>
+            {product.stock === 0 ? <><h5 className="product-stock text-center mt-1">SIN STOCK</h5></> :
+                <>
             <h5 className="product-stock text-center mt-1">Stock disponible {product.stock} unidades</h5>
-
+            </>}
             <Link to={`/item/${product.id}`} className="link-btn-detail d-flex justity-content-center">
                 <CustomButton
                 textButton={"Ver Detalle"}

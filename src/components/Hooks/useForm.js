@@ -1,7 +1,8 @@
-import {useState} from "react";
+import { useState } from "react";
 import { helpHttp } from "../../services/helpHttp";
 
 export const useForm = (initialForm, validateForm) => {
+
     const [form, setForm] = useState(initialForm);
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
@@ -20,6 +21,7 @@ export const useForm = (initialForm, validateForm) => {
         })
     }
 
+    //BLUR:
     const handleBlur = (e) => {
         handleChange(e);
 
@@ -27,6 +29,7 @@ export const useForm = (initialForm, validateForm) => {
         setErrors(validateForm(form));
     }
 
+    //INPUT:
         const handleInput = (e) => {
         handleChange(e);
 
@@ -36,11 +39,11 @@ export const useForm = (initialForm, validateForm) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         setErrors(validateForm(form));
 
         if (Object.keys(errors).length === 0) {
             //TODO: insertar algun alert
-
             setLoading(true);
             helpHttp()
                 .post("https://formsubmit.co/ajax/anam85_1@hotmail.com", {

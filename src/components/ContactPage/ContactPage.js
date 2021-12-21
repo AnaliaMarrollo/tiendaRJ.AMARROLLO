@@ -73,7 +73,9 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-container my-5">
-      <form className="form-container" onSubmit={handleSubmit}>
+      <div className="form-container">
+      <h5 className="form-title">Contacto</h5>
+      <form className="form" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
           className={
@@ -149,6 +151,7 @@ const ContactPage = () => {
           </form>
           {loading && <Loader textLoader={ "Enviando..." }/>}
           {response && <p>Formulario Enviado. Muy pronto nos contactaremos</p>}
+        </div>
     </div>
   );
 };

@@ -46,8 +46,9 @@ const CartView = () => {
                         />
                         
                     <CustomButton
-                        textButton={"Finalizar Compra"}
-                        className="btn-purchase"
+                            textButton={"Finalizar Compra"}
+                            onClick={() => push("/checkout")}
+                            className="btn-purchase"
                     /> 
                 </>
             }

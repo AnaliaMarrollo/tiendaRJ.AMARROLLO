@@ -5,37 +5,57 @@
 }
 
 .form {
-    &-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-title {
         margin-top: 10rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        text-align: center;
+        padding-top: 1rem;
     }
 
-            &-input {
-                margin-top: 1rem;
-                width: 20rem ;
-                
-                &-errors{
-                    border: solid $color-violet .3rem;
-                }
+    &-container {
+        background-color: white;
+        box-shadow: $container-shadow;
+        width: 60%;
+        margin: auto;
+        text-transform: uppercase;
+    }
 
-                &-ok{
-                    border: solid $color-pink .3rem;
-                }
+    &-input {
+        margin-top: 1rem;
+        width: 20rem;
 
-                &-comments {
-                    resize: none;
-                }
-            }
+        &-errors {
+            border: solid $color-violet .3rem;
+        }
 
-    &-error{
+        &-ok {
+            border: solid $color-pink .3rem;
+        }
+
+        &-comments {
+            resize: none;
+        }
+    }
+
+    &-error {
         font-size: .8rem;
         font-weight: bolder;
-        color: darken($color-violet,10%);
+        color: darken($color-violet, 10%);
         margin: .25rem;
+    }
 
+    &-span{
+        margin-top: 1rem;
+        text-decoration: .25rem $color-violet underline;
+        &-google {
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
     }
 }
 

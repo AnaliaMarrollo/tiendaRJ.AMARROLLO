@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faGratipay } from "@fortawesome/free-brands-svg-icons";
+import ItemCounter from '../ItemCounter/ItemCounter'
 
 //STYLES
 import "./CartItem.scss";
 
-const CartItem = ({ id, name, img, presentation, price, quantity, stock }) => {
+const CartItem = ({ id, name, img, presentation, quantity, price, stock}) => {
   const { removeFromCart } = useContext(CartContext);
+
+  const [quantityCart, setQuantityCart] = useState(quantity);
 
   return (
     <div className="cart-item-container">
@@ -20,7 +23,7 @@ const CartItem = ({ id, name, img, presentation, price, quantity, stock }) => {
       <div className="cart-item-container-details">
         <h3 className="cart-item mx-2">Presentación: {presentation}</h3>
         <h3 className="cart-item mx-2">Precio: $ {price}</h3>
-        <h3 className="cart-item mx-2">Cantidad: {quantity}</h3>
+        <ItemCounter quantity={quantityCart} modifyQuantity={ setQuantityCart} stock={stock} />
 
         <FontAwesomeIcon
           onClick={() => removeFromCart(id)}
