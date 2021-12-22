@@ -79,7 +79,7 @@ const ContactPage = () => {
         <input
           onChange={handleChange}
           className={
-            ((errors.name !== null) && (errors.name ? "form-input form-input-errors" : "form-input form-input-ok"))
+            ((errors.name ? "form-input form-input-errors" : "form-input form-input-ok"))
           }
           name="name"
           value={form.name}

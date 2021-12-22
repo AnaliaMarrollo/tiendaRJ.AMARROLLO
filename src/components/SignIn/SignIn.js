@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import { useContext } from "react";
+import React, {useState, useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Success from "../Success/Succes";
+import { Redirect } from "react-router";
+import { set } from "lodash";
 
 const SignIn = () => {
   const { login, logged, error, googleAuth } = useContext(AuthContext);
@@ -10,10 +10,9 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   return (
   <>
-      {logged ? <Success message={"Inicio de sesión exitoso"}/> :
+      {logged ? <Redirect to={"/"}/> :
     <div className="form-container">
       <form className="form">
       <h5 className="form-title">

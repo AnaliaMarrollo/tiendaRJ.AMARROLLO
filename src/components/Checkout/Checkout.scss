@@ -1,9 +1,27 @@
 .checkout-container{
     width: 90%;
+    margin: auto;
     min-height: 100vh;
     margin-top: 10rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+
+    &-no-stock {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        min-height: auto;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
 }
+
+.img-no-stock{
+    width: 15%;
+    height: auto;
+}
+

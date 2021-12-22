@@ -1,5 +1,13 @@
 @import "../../custom";
 
 .home-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    width: 80%;
+    margin: 10rem auto;
+    box-shadow: $container-shadow;
+    background-color: white;
 }

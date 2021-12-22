@@ -9,7 +9,6 @@ import {
 import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/config";
 import Success from "../components/Success/Succes";
-import Errors from "../components/Errors/Errors"
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
@@ -36,25 +35,22 @@ export const AuthProvider = ({ children }) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        console.log(user)
         Swal.fire({
-  title: 'Bienvenidx!',
-  text: 'Usuario creado exitosamente',
-  icon: 'success',
-          confirmButtonText: 'OK'
-
+        title: 'Bienvenidx!',
+        text: 'Usuario creado exitosamente',
+        icon: 'success',
+        confirmButtonText: 'OK'
         })
           setError("");
-        // <Success message={"Usuario creado correctamente"}/>
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("errorMessage",errorMessage, "errorCode" , errorCode)
         setError(errorCode);
       });
   };
 
-  //LOGIN SIGN IN
+  //LOGIN SIGN IN----------------
   const login = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -66,10 +62,7 @@ export const AuthProvider = ({ children }) => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode)
         setError(errorCode)
-        errorsAuth.mensajeErrorLogin= {errorMessage}
       });
   };
 
@@ -90,17 +83,11 @@ export const AuthProvider = ({ children }) => {
   const googleAuth = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
         const user = result.user;
-        console.log("GOOGLEAUTH: ",credential, token, user);
+        console.log("GOOGLEAUTH: ", user);
         setUser(user);
-        // ...
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
@@ -118,10 +105,7 @@ export const AuthProvider = ({ children }) => {
         setUser(user);
         setLogged(true);
         setError("");
-        // ...
       } else {
-        // User is signed out
-        // ...
         setLogged(false);
       }
     });

@@ -3,11 +3,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { AuthContext } from "../../context/AuthContext";
 import CartWidget from "../CartWidget/CartWidget";
-import SignIn from "../../components/SignIn/SignIn";
-import SignUp from "../../components/SignUp/SignUp";
-import Logout from "../Success/Succes";
 import CustomButton from "../../components/CustomButton/CustomButton"
-import Modals from "../Modals/Modals";
 
 //Styles
 import "./NavBar.scss";
@@ -76,18 +72,12 @@ function NavBar() {
                 </>
                 :
                 <>
-                  {/* <NavLink exact to={"/login"} activeClassName={"activeLink"} className="nav-link" id="signin">
-                  <Modals/>
-                  </NavLink> */}
                   <NavLink exact to={"/signin"} activeClassName={"activeLink"} className="nav-link" id="signup">Iniciar Sesión
 
                   </NavLink>
                   <NavLink exact to={"/signup"} activeClassName={"activeLink"} className="nav-link" id="signup">Registrarme
 
                   </NavLink>
-                  {/* <NavLink exact to={"/logout"} activeClassName={"activeLink"} className="nav-link" id="signIn">
-                    <Logout />
-                  </NavLink> */}
                 </>}
             </div>
           </div>
