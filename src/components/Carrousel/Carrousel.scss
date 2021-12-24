@@ -1,0 +1,33 @@
+@import '../../custom';
+
+.carrousel {
+    
+    &-item{
+        background-color: whitesmoke;
+    }
+    &-img{
+       height: 80vh;
+       width: 60%;
+       margin: auto;
+       background-color: whitesmoke;
+    }
+    &-caption{
+                height: 70vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                &-brand {
+                    color:whitesmoke;
+                    font-weight: 800;
+                    background-color: rgba(0,0,0,0.5);
+                    padding: 1rem;
+                    border-radius: .25rem;
+                }
+    }
+}
+
+.btn-carrousel-welcome{
+   @extend %buttton-black-violet;
+}
+

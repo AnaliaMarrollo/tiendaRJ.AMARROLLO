@@ -12,83 +12,82 @@ import {
   documentId,
 } from "@firebase/firestore/lite";
 import Loader from "../../components/Loader/Loader";
-import CustomButton from "../CustomButton/CustomButton";
 import { Link, Redirect } from "react-router-dom";
+import CheckoutSuccess from "../CheckoutSuccess/CheckoutSuccess";
+import CheckoutNoStock from "../CheckoutNoStock/CheckoutNoStock";
+import CheckoutDetail from "../CheckoutDetail/CheckoutDetail";
+import { AuthContext } from "../../context/AuthContext";
+
+//FORMIK AND YUP:
 import { Formik } from "formik";
 import * as Yup from "yup";
 
 //STYLES:
 import "./Checkout.scss";
-import { CheckoutSuccess } from "../CheckoutSuccess/CheckoutSuccess";
-import CheckoutNoStock from "../CheckoutNoStock/CheckoutNoStock";
-import { CheckoutDetail } from "../CheckoutDetail/CheckoutDetail";
-import { AuthContext } from "../../context/AuthContext";
+import "../ContactPage/ContactPage.scss";
+import "../../_custom.scss";
 
 const Checkout = () => {
   const { carrito, totalPurchase, emptyCart } = useContext(CartContext);
-  const { user, logged, logout } = useContext(AuthContext);
+  const { user, logged } = useContext(AuthContext);
 
   const [orderId, setOrderId] = useState("");
   const [loading, setLoading] = useState(false);
   const [noStock, setNoStock] = useState("");
-  const [buyerValues, setBuyerValues] = useState({});
 
   let order = {};
 
-    const initialValues = {
-      name: "",
-      surname: "",
-      email: "",
-      checkEmail: "",
-      phone: "",
-  }
-  
-  const  initialValuesLogged = {
-      name: "",
-      surname: "",
-      email: "",
-      phone: "",
-    };
+  const initialValues = {
+    name: "",
+    surname: "",
+    email: "",
+    checkEmail: "",
+    phone: "",
+  };
+
+  const initialValuesLogged = {
+    name: "",
+    surname: "",
+    email: "",
+    phone: "",
+  };
 
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-  
-  const schemaNoLogged =
-      Yup.object().shape({
-        name: Yup.string()
-          .required("Este campo es obligatorio")
-          .min(3, "El nombre debe contener al menos 3 caracteres")
-          .max(30, "El nombre es demasiado largo"),
-        surname: Yup.string()
-          .required("Este campo es obligatorio")
-          .min(3, "El apellido debe contener al menos 3 caracteres")
-          .max(30, "El apellido es demasiado largo"),
-        email: Yup.string()
-          .required("Este campo es obligatorio")
-          .email("Email inválido"),
-        checkEmail: Yup.string()
-          .required("Este campo es obligatorio")
-          .matches(initialValues.email, "El email no coincide con el ingresado"),
-        phone: Yup.string().matches(phoneRegExp, "El número no es válido"),
-      })
+  const schemaNoLogged = Yup.object().shape({
+    name: Yup.string()
+      .required("Este campo es obligatorio")
+      .min(3, "El nombre debe contener al menos 3 caracteres")
+      .max(30, "El nombre es demasiado largo"),
+    surname: Yup.string()
+      .required("Este campo es obligatorio")
+      .min(3, "El apellido debe contener al menos 3 caracteres")
+      .max(30, "El apellido es demasiado largo"),
+    email: Yup.string()
+      .required("Este campo es obligatorio")
+      .email("Email inválido"),
+    checkEmail: Yup.string()
+      .required("Este campo es obligatorio")
+      .matches(initialValues.email, "El email no coincide con el ingresado"),
+    phone: Yup.string().matches(phoneRegExp, "El número no es válido"),
+  });
 
-  const schemaLogged =
-       Yup.object().shape({
-        name: Yup.string()
-          .required("Este campo es obligatorio")
-          .min(3, "El nombre debe contener al menos 3 caracteres")
-          .max(30, "El nombre es demasiado largo"),
-        surname: Yup.string()
-          .required("Este campo es obligatorio")
-          .min(3, "El apellido debe contener al menos 3 caracteres")
-          .max(30, "El apellido es demasiado largo"),
-        email: Yup.string()
-          .required("Este campo es obligatorio")
-          .email("Email inválido"),
-        phone: Yup.string().matches(phoneRegExp, "El número no es válido"),
-       })
-  
+  const schemaLogged = Yup.object().shape({
+    name: Yup.string()
+      .required("Este campo es obligatorio")
+      .min(3, "El nombre debe contener al menos 3 caracteres")
+      .max(30, "El nombre es demasiado largo"),
+    surname: Yup.string()
+      .required("Este campo es obligatorio")
+      .min(3, "El apellido debe contener al menos 3 caracteres")
+      .max(30, "El apellido es demasiado largo"),
+    email: Yup.string()
+      .required("Este campo es obligatorio")
+      .email("Email inválido"),
+    phone: Yup.string().matches(phoneRegExp, "El número no es válido"),
+  });
+
   const handleSubmit = (values) => {
     order = {
       buyer: values,
@@ -144,7 +143,6 @@ const Checkout = () => {
     });
   };
 
-
   if (carrito.length === 0 && !orderId) {
     return <Redirect to={"/"} />;
   }
@@ -156,20 +154,31 @@ const Checkout = () => {
   return (
     <>
       {orderId ? (
-        <CheckoutSuccess orderId={orderId} />)
-        : noStock ? (
+        <CheckoutSuccess orderId={orderId} />
+      ) : noStock ? (
         <CheckoutNoStock noStock={noStock} />
       ) : (
-        <div className="checkout-container my-5">
-          <h2>Completa tus datos para terminar tu compra:</h2>
+        <div className="white-container-full">
+          <h2 className="title">Checkout</h2>
+
+          {logged && (
+            <div className="container-user-logged">
+              <p className="form-message form-message-logged">
+                Estás comprando como: {user.email}
+              </p>
+            </div>
+          )}
+          <CheckoutDetail orderId={orderId} />
+          <h2 className=" title title-small">
+            Completa tus datos para terminar tu compra:
+          </h2>
           <Formik
-            
-            initialValues= {logged ? initialValuesLogged : initialValues }
+            initialValues={logged ? initialValuesLogged : initialValues}
             validationSchema={logged ? schemaLogged : schemaNoLogged}
             onSubmit={handleSubmit}
           >
             {(formik) => (
-              <form onSubmit={formik.handleSubmit}>
+              <form onSubmit={formik.handleSubmit} className="form">
                 <input
                   className="form-input"
                   type="text"
@@ -178,8 +187,10 @@ const Checkout = () => {
                   placeholder="Nombre"
                   onChange={formik.handleChange}
                 />
-                {formik.errors.name && (
-                  <p className="form-error">{formik.errors.name}</p>
+                {formik.errors.name && formik.touched.name && (
+                  <p className="form-message form-message-error">
+                    {formik.errors.name}
+                  </p>
                 )}
                 <input
                   className="form-input"
@@ -189,8 +200,10 @@ const Checkout = () => {
                   placeholder="Apellido"
                   onChange={formik.handleChange}
                 />
-                {formik.errors.surname && (
-                  <p className="form-error">{formik.errors.surname}</p>
+                {formik.errors.surname && formik.touched.surname && (
+                  <p className="form-message form-message-error">
+                    {formik.errors.surname}
+                  </p>
                 )}
                 <input
                   className="form-input"
@@ -200,18 +213,14 @@ const Checkout = () => {
                   placeholder="Teléfono"
                   onChange={formik.handleChange}
                 />
-                {formik.errors.phone && (
-                  <p className="form-error">{formik.errors.phone}</p>
+                {formik.errors.phone && formik.touched.phone && (
+                  <p className="form-message form-message-error">
+                    {formik.errors.phone}
+                  </p>
                 )}
 
                 {logged ? (
                   <>
-                    <p>Estás comprando como: {user.email}</p>
-                    <CustomButton
-                      textButton={"No soy yo"}
-                      className="btn btn-primary mx-3"
-                      onClick={logout}
-                    />
                     <input
                       className="form-input"
                       type="email"
@@ -221,12 +230,30 @@ const Checkout = () => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     />
-                    {formik.errors.email && (
-                      <p className="form-error">{formik.errors.email}</p>
+                    {formik.errors.email && formik.touched.email && (
+                      <p className="form-message form-message-error">
+                        {formik.errors.email}
+                      </p>
                     )}
+
+                    {formik.touched.email &&
+                      formik.values.email !== user.email && (
+                        <>
+                          <p className="form-message form-message-error">
+                            La dirección de correo no coincide.
+                          </p>
+                          <p className="form-message form-message-logged">
+                            Si desea realizar la compra con otro email debe
+                            cerrar la sesión
+                          </p>
+                        </>
+                      )}
+
                     <input
                       type="submit"
+                      className="btn-login"
                       value="Confirmar compra"
+                      disabled={formik.values.email !== user.email}
                     />
                   </>
                 ) : (
@@ -240,8 +267,10 @@ const Checkout = () => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     />
-                    {formik.errors.email && (
-                      <p className="form-error">{formik.errors.email}</p>
+                    {formik.errors.email && formik.touched.email && (
+                      <p className="form-message form-message-error">
+                        {formik.errors.email}
+                      </p>
                     )}
 
                     <input
@@ -253,25 +282,34 @@ const Checkout = () => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     />
-                    {formik.errors.checkEmail && (
-                      <p className="form-error">{formik.errors.checkEmail}</p>
+                    {formik.errors.checkEmail && formik.touched.checkEmail && (
+                      <p className="form-message form-message-error">
+                        {formik.errors.checkEmail}
+                      </p>
                     )}
                     {formik.values.email !== formik.values.checkEmail ? (
-                      <p className="form-error">
+                      <p className="form-message form-message-error">
                         La direccion de correo no coincide
                       </p>
-                    ): (<input type="submit" value="Confirmar compra" disabled={
-                        formik.values.email !== formik.values.checkEmail
-                      } />)}
+                    ) : (
+                      <input
+                        type="submit"
+                        value="Confirmar compra"
+                        className="btn-login"
+                        disabled={
+                          formik.values.email !== formik.values.checkEmail
+                        }
+                      />
+                    )}
                   </>
                 )}
 
-                <Link to={"/cart"}>Volver al carrito</Link>
-                
+                <Link className="btn-login btn-link" to={"/cart"}>
+                  Volver al carrito
+                </Link>
               </form>
             )}
           </Formik>
-          <CheckoutDetail orderId={orderId} />
         </div>
       )}
     </>

@@ -1,17 +1,20 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
-export const CheckoutDetail = () => {
+//STYLES:
+import '../../_custom.scss';
+import '../ContactPage/ContactPage.scss';
 
+const CheckoutDetail = () => {
     const { carrito, totalPurchase } = useContext(CartContext)
 
     return (
-        <div className="finalizar-compra">
+        <div className="violet-container">
                     <div>
-                        <h4>Detalle de compra</h4>
-                        <div>
-                    {carrito.map(item => <p key={ item.id}>{item.name} Cantidad: {item.quantity} Presentación: {item.presentation} Precio: $ { item.price}</p>)}
-                        </div>
+                        <h4 className="white-title">Detalle de compra</h4>
+                        <ul>
+                        {carrito.map(item => <li key={item.id} className="title title-small list">{item.name} Cantidad: {item.quantity} Presentación: {item.presentation} Precio: $ { item.price}</li>)}
+                        </ul>
                         <hr/>
                         <p>Total a pagar: <span>${totalPurchase()}</span></p>
                     </div>
@@ -19,3 +22,5 @@ export const CheckoutDetail = () => {
                 </div>
     )
 }
+
+export default CheckoutDetail;

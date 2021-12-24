@@ -26,6 +26,7 @@ export default function ItemCounter({ quantity, modifyQuantity, stock }) {
       <CustomButton
         textButton={"-"}
         onClick={onDecrement}
+        className={"btn-login"}
         disabled={quantity === 1}
       />
 
@@ -34,6 +35,7 @@ export default function ItemCounter({ quantity, modifyQuantity, stock }) {
       <CustomButton
         textButton={"+"}
         onClick={onIncrement}
+        className={"btn-login"}
         disabled={quantity === stock}
       />
     </div>

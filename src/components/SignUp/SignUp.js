@@ -3,7 +3,9 @@ import { useContext } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
-import "../ContactPage/ContactPage.scss";
+import '../../_custom.scss';
+import '../ContactPage/ContactPage.scss';
+
 const SignUp = () => {
   const { signup, error } = useContext(AuthContext);
 
@@ -16,10 +18,10 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <form className="form-container my-5" onSubmit={handleSignup}>
-        <h5 className="form-title">Registrarme</h5>
-        <span className="">Email</span>
+    <div>
+      <form className="form" onSubmit={handleSignup}>
+        <h5 className="title">Registrarme</h5>
+        <span className="form-span">Email</span>
         <input
           type="text"
           className="form-input"
@@ -28,12 +30,12 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         {error === "auth/email-already-in-use" && (
-          <p className="form-error">Usuario ya registrado</p>
+          <p className="form-message form-message-error">Usuario ya registrado</p>
         )}
         {error === "auth/invalid-email" && (
-          <p className="form-error">Ingrese un email válido</p>
+          <p className="form-message form-message-error">Ingrese un email válido</p>
         )}
-        <span className="">Contaseña</span>
+        <span className="form-span">Contaseña</span>
         <input
           type="password"
           className="form-input"
@@ -42,13 +44,13 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error === "auth/weak-password" && (
-          <p className="form-error">
+          <p className="form-message form-message-error">
             La contraseña debe contener más de 6 caracteres
           </p>
         )}
-        <input type="submit" value="Enviar" className="btn btn-primary" />
+        <input type="submit" value="Enviar" className="btn-login" />
       </form>
-    </>
+    </div>
   );
 };
 

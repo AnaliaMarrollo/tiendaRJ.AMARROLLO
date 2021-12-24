@@ -8,13 +8,13 @@ import ItemListContainer from "./containers/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
 import Error404 from "./components/Error404/Error404";
 import CartView from "./components/CartView/CartView";
-import { CartProvider } from "./context/CartContext";
 import Footer from "./components/Footer/Footer";
 import Checkout from "./components/Checkout/Checkout";
+import Login from "./components/Login/Login";
+
+//CONTEXT:
 import { AuthProvider } from "./context/AuthContext";
-import SignIn from "./components/SignIn/SignIn";
-import SignUp from "./components/SignUp/SignUp";
-import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
@@ -36,18 +36,10 @@ function App() {
               component={ItemListContainer}
             />
             <Route exact path="/item/:id" component={ItemDetailContainer} />
-            <Route exact path="/takeaway" />
             <Route exact path="/contacto" component={ContactPage} />
             <Route exact path="/cart" component={CartView} />
-
-            {/* <Route exact path = "/checkout" element ={<RestrictedRoute>
-                                                <Checkout/>
-            </RestrictedRoute>} />
-             */}
             <Route exact path="/checkout" component={Checkout} />
-            
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/login" component={Login}/>
             <Route path="*" component={Error404} />
           </Switch>
 

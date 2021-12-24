@@ -4,6 +4,7 @@ import Loader from "../Loader/Loader";
 
 //STYLES
 import "./ContactPage.scss";
+import '../../_custom.scss'
 
 const initialForm = {
   name: "",
@@ -72,14 +73,14 @@ const ContactPage = () => {
   } = useForm(initialForm, validationsForm);
 
   return (
-    <div className="contact-page-container my-5">
-      <div className="form-container">
-      <h5 className="form-title">Contacto</h5>
+    <div className="contact-page-container">
+      <div className="white-container-full">
+      <h5 className="title">Contacto</h5>
       <form className="form" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
           className={
-            ((errors.name ? "form-input form-input-errors" : "form-input form-input-ok"))
+            ((errors.name ? "form-input form-input-errors" : "form-input"))
           }
           name="name"
           value={form.name}
@@ -89,11 +90,11 @@ const ContactPage = () => {
           onInput={handleInput}
           required
         />
-        {errors.name && <p className="form-error">{errors.name}</p>}
+        {errors.name && <p className="form-message form-message-error">{errors.name}</p>}
 
         <input
           onChange={handleChange}
-          className="form-input"
+          className={ ((errors.name ? "form-input form-input-errors" : "form-input"))}
           name="surname"
           value={form.surname}
           type="text"
@@ -102,11 +103,11 @@ const ContactPage = () => {
           onInput={handleInput}
           required
         />
-        {errors.surname && <p className="form-error">{errors.surname}</p>}
+        {errors.surname && <p className="form-message form-message-error">{errors.surname}</p>}
 
         <input
           onChange={handleChange}
-          className="form-input"
+          className={ ((errors.name ? "form-input form-input-errors" : "form-input"))}
           name="email"
           value={form.email}
           type="text"
@@ -115,11 +116,11 @@ const ContactPage = () => {
           onInput={handleInput}
           required
         />
-        {errors.email && <p className="form-error">{errors.email}</p>}
+        {errors.email && <p className="form-message form-message-error">{errors.email}</p>}
 
         <input
           onChange={handleChange}
-          className="form-input"
+          className={ ((errors.name ? "form-input form-input-errors" : "form-input"))}
           name="subject"
           value={form.subject}
           type="text"
@@ -128,11 +129,11 @@ const ContactPage = () => {
           onInput={handleInput}
           required
         />
-        {errors.subject && <p className="form-error">{errors.subject}</p>}
+        {errors.subject && <p className="form-message form-message-error">{errors.subject}</p>}
 
         <textarea
           onChange={handleChange}
-          className="form-input form-input-comments"
+            className={((errors.name ? "form-input form-input-errors" : "form-input form-input-comments" ))}
           name="comments"
           value={form.comments}
           cols="50"
@@ -142,15 +143,17 @@ const ContactPage = () => {
                   onInput={handleInput}
           required
         />
-        {errors.comments && <p className="form-error">{errors.comments}</p>}
-        <input
+        {errors.comments && <p className="form-message form-message-error">{errors.comments}</p>}
+         {errors && <p className="form-message form-message-error">POR FAVOR COMPLETE EL FORMULARIO</p> }
+          <input
           className="form-input btn-form-submit"
           type="submit"
           value="Enviar"
-        />
+          />
+         
           </form>
           {loading && <Loader textLoader={ "Enviando..." }/>}
-          {response && <p>Formulario Enviado. Muy pronto nos contactaremos</p>}
+          {response && (<> <p className="form-message form-message-success">FORMULARIO ENVIADO EXITOSAMENTE</p><p className="form-message form-message-success"> ¡Te responderemos a la brevedad!</p></>)    }
         </div>
     </div>
   );

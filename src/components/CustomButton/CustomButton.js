@@ -1,11 +1,11 @@
 import React from "react";
 import "./CustomButton.scss";
 
-export default function CustomButton({ textButton, disabled, onClick }) {
+export default function CustomButton({ textButton, disabled, onClick, className }) {
   return (
     <>
       <button
-        className="btn-custom m-1 rounded btn-dark"
+        className={className}
         disabled={disabled}
         onClick={onClick}
       >

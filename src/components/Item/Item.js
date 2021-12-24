@@ -1,31 +1,51 @@
-import React from 'react'
-import CustomButton from '../CustomButton/CustomButton'
-import { Link } from 'react-router-dom'
+import React from "react";
+import CustomButton from "../CustomButton/CustomButton";
+import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
-//Styles
-import './Item.scss'
+//STYLES:
+import "./Item.scss";
+import "../../_custom.scss";
+import "../ContactPage/ContactPage.scss";
 
-const Item = ({product}) => {
-    return (
-        <div className="w-25 m-1 rounded d-flex row align-items-center justity-content-center container-white">
-            <h3 className="product-title text-center">{product.name}</h3>
-            {product.noTacc && <h5 className="product-option d-flex align-items-center text-center">Opción sin Tacc</h5>}
-            {product.vegan && <h5 className="product-option d-flex align-items-center text-center">Vegano</h5>}
-            {product.fit && <h5 className="product-option d-flex align-items-center text-center">Opción fit</h5>}
-            <img src={product.img} alt="foto producto" className="img-product" />
-            <h4 className="product-presentation text-center mt-1">Presentación: {product.presentation}</h4>
-            {product.stock === 0 ? <><h5 className="product-stock text-center mt-1">SIN STOCK</h5></> :
-                <>
-            <h5 className="product-stock text-center mt-1">Stock disponible {product.stock} unidades</h5>
-            </>}
-            <Link to={`/item/${product.id}`} className="link-btn-detail d-flex justity-content-center">
-                <CustomButton
-                textButton={"Ver Detalle"}
-            />
-            </Link>
-            
-        </div>
-    )
-}
+const Item = ({ product }) => {
+  return (
+    <Card className="card-container m-2">
+      <Card.Img variant="top" src={product.img} className="card-img" />
+      <Card.Body>
+        {product.noTacc && (
+          <h5 className="product-option d-flex align-items-center text-center">
+            SIN TACC
+          </h5>
+        )}
+        {product.vegan && (
+          <h5 className="product-option d-flex align-items-center text-center">
+            VEGAN
+          </h5>
+        )}
 
-export default Item
+        <Card.Title>{product.name}</Card.Title>
+
+        <Card.Text>Presentación: {product.presentation}</Card.Text>
+        {product.stock === 0 ? (
+          <Card.Text>SIN STOCK</Card.Text>
+        ) : (
+          <Card.Text>Stock disponible {product.stock}</Card.Text>
+        )}
+      </Card.Body>
+      <Link
+        to={`/item/${product.id}`}
+        className="link-btn-detail d-flex justity-content-center"
+      >
+        <CustomButton
+          textButton={"Ver Detalle"}
+          className="btn-login btn-link"
+        />
+      </Link>
+    </Card>
+
+    //</div>
+  );
+};
+
+export default Item;

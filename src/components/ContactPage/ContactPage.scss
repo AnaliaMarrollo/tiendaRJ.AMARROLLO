@@ -11,23 +11,10 @@
     align-items: center;
     justify-content: center;
 
-    &-title {
-        margin-top: 10rem;
-        text-align: center;
-        padding-top: 1rem;
-    }
-
-    &-container {
-        background-color: white;
-        box-shadow: $container-shadow;
-        width: 60%;
-        margin: auto;
-        text-transform: uppercase;
-    }
-
     &-input {
         margin-top: 1rem;
         width: 20rem;
+        outline: none;
 
         &-errors {
             border: solid $color-violet .3rem;
@@ -42,16 +29,36 @@
         }
     }
 
-    &-error {
+    &-message {
         font-size: .8rem;
         font-weight: bolder;
-        color: darken($color-violet, 10%);
+        color: white;
         margin: .25rem;
+        width: 15rem;
+        margin: auto;
+        padding: .1rem;
+        padding-left: 1rem;
+        border-radius: .25rem;
+        margin-top: .5rem;
+
+        &-error {
+            background-color: darken($color-violet, 10%);
+        }
+
+        &-success {
+
+            background-color: darken($color-pink, 10%);
+        }
+
+        &-logged{
+            background-color: lighten($color-violet, 10%);
+        }
     }
 
-    &-span{
+    &-span {
         margin-top: 1rem;
         text-decoration: .25rem $color-violet underline;
+
         &-google {
             margin-bottom: 1rem;
             text-decoration: none;
@@ -72,3 +79,9 @@
         color: whitesmoke;
     }
 }
+
+.btn-login {
+    @extend %buttton-black-violet;
+    margin-top: .5rem;
+}
+

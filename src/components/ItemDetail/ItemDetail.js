@@ -5,7 +5,7 @@ import CustomButton from "../CustomButton/CustomButton";
 import { CartContext } from "../../context/CartContext";
 
 //STYLES
-import './ItemDetail.scss';
+import "./ItemDetail.scss";
 
 const ItemDetail = ({
   id,
@@ -14,7 +14,6 @@ const ItemDetail = ({
   price,
   description,
   presentation,
-  ingredients,
   stock,
 }) => {
   //useStory for buttons: go Back, go to Home and go to Cart
@@ -39,7 +38,7 @@ const ItemDetail = ({
           img,
           presentation,
           quantity,
-          stock
+          stock,
         };
 
         addToCart(newItem);
@@ -68,45 +67,50 @@ const ItemDetail = ({
                 <p className="product-presentation">
                   Presentación: {presentation}
                 </p>
-                <p className="product-ingredients">
-                  Ingredientes: {ingredients}
-                </p>
                 <p className="product-price">${price}</p>
 
                 {productInCart(id) ? (
                   <>
                     <CustomButton
                       textButton={"Finalizar Compra"}
+                      className={"btn-login"}
                       onClick={() => push("/cart")}
                     />
                   </>
                 ) : (
                   <>
-                      {stock === 0 ?
-                        <><p className="product-stock mt-1">SIN STOCK</p></>
-                        : <>
-                          <ItemCounter
+                    {stock === 0 ? (
+                      <>
+                        <p className="product-stock mt-1">SIN STOCK</p>
+                      </>
+                    ) : (
+                      <>
+                        <ItemCounter
                           quantity={quantity}
                           modifyQuantity={setQuantity}
                           stock={stock}
                         />
                         <p className="product-stock mt-1">
-                        Stock disponible: {stock} unidades
+                          Stock disponible: {stock}
                         </p>
                         <CustomButton
                           textButton={"Agregar al Carrito"}
                           onClick={handleAdd}
                           disabled={setQuantity > stock}
+                          className={"btn-login"}
                         />
-                        </>
-                      }
-                        
-                    </>    
-                      )
-                }
-                <CustomButton textButton={"Volver"} onClick={() => goBack()} />
+                      </>
+                    )}
+                  </>
+                )}
+                <CustomButton
+                  textButton={"Volver"}
+                  className={"btn-login"}
+                  onClick={() => goBack()}
+                />
                 <CustomButton
                   textButton={"Volver al inicio"}
+                  className={"btn-login"}
                   onClick={() => push("/")}
                 />
               </div>

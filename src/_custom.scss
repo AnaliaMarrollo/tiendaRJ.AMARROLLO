@@ -1,11 +1,9 @@
 //colors
 $color-pink: #ffa5d8;
-// $color-mint: #83c1b4;
-// $color-cherry: #cb042c;
 
-$color-light-blue:#7eb8da; 
-$color-light-aqua: #92ddea;
-$color-lila: #be9ddf;
+// $color-light-blue:#7eb8da; 
+// $color-light-aqua: #92ddea;
+// $color-lila: #be9ddf;
 $color-violet: #9579d1;
 
 $color-light-black:lighten(black, 20%);
@@ -13,3 +11,122 @@ $color-light-black:lighten(black, 20%);
 //shadows
 $element-shadow: 0 0 .75rem rgba(0, 0, 0, 0.7);
 $container-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
+
+//button
+%buttton-black-violet{
+    border: solid black .2rem;
+    background-color: black;
+    color: white;
+    border-radius: .25rem;
+    font-size: .8rem;
+    margin: 0 .3rem;
+
+        &:hover {
+            border: solid $color-violet .2rem;
+            background-color: $color-violet;
+            color:white;
+        }
+
+        outline: none;
+}
+
+.btn-link {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.btn-container-violet {
+    &:hover {
+        background-color: white;
+        color: darken($color-violet, 25%);
+    }
+}
+
+//containers
+%white-container{
+            background-color: white;
+            box-shadow: $container-shadow;
+            margin-top: 2rem;
+            padding: 1rem;
+}
+
+%container-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+%container-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.white-container-full{
+    @extend %white-container;
+    width: 90%;
+    min-height: 80vh;
+    margin: auto;
+}
+
+.white-container-small{
+    @extend %white-container;
+    width: 70%;
+    margin: auto;
+    min-height: 80vh;
+}
+
+.violet-container {
+    @extend %white-container;
+    background-color: lighten($color-violet, 5%);
+    color: whitesmoke;
+    border-radius: .25rem;
+    width: 80%;
+    margin: 1rem auto;
+}
+
+//titles
+.white-title{
+    @extend %title;
+}
+
+%title{
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.title{
+    @extend %title;
+    text-decoration: .2rem $color-violet underline;
+    &-small{
+        font-size: .8rem;
+        text-decoration: none;
+    }
+}
+
+//lists
+.list{
+text-align: left;
+&::marker{
+    font-size: 1.5rem;
+    color: $color-pink;
+}
+}
+
+//inputs
+input::placeholder, textarea::placeholder{
+    color: $color-violet;
+    font-size: .8rem;
+    text-transform: uppercase;
+    padding-left: .5rem;
+    font-weight: bolder;
+}
+
+//link 
+
+.link {
+    text-decoration: none;
+}

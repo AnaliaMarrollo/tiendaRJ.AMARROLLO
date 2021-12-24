@@ -1,3 +1,5 @@
+@import '../../custom';
+
 .checkout-container{
     width: 90%;
     margin: auto;
@@ -10,18 +12,24 @@
 
     &-no-stock {
         display: flex;
-        flex-direction: row;
-        width: 50%;
+        flex-direction: column;
+        width: 80%;
         min-height: auto;
         margin: auto;
         text-align: center;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
     }
 }
 
 .img-no-stock{
     width: 15%;
     height: auto;
+}
+
+.container-user-logged{
+    @extend %container-flex-row;
+    justify-content: center;
 }
 

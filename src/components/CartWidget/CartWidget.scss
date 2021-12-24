@@ -2,10 +2,10 @@
 
 .cart-widget-container {
     width: 3rem;
+        position: relative;
 }
 
 .shopping-cart {
-    position: relative;
     color: black;
     font-size: 1.3rem;
     animation: ease-in-out .5s;
@@ -13,7 +13,6 @@
 
 .shopping-qty {
     position: absolute;
-    top: 10%;
     right: 2%;
     width: 1.5rem;
     height: 1.5rem;

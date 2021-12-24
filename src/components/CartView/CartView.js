@@ -6,6 +6,7 @@ import { useHistory } from 'react-router'
 
 //Styles
 import "./CartView.scss"
+import { Link } from 'react-router-dom'
 
 const CartView = () => {
 
@@ -13,8 +14,8 @@ const CartView = () => {
     const { push } = useHistory();
 
     return (
-        <div className="cart-view-container">
-        <div className="cart-view rounded">
+       
+        <div className="white-container-full">
             
                 {carrito.length === 0
                     
@@ -24,7 +25,8 @@ const CartView = () => {
 
                   <CustomButton
                     textButton={"Ir a Comprar"}
-                    onClick={() => push("/nuestrosProductos")}
+                            onClick={() => push("/nuestrosProductos")}
+                            className={"btn-login"}
                     />
                     
                 </>
@@ -42,19 +44,27 @@ const CartView = () => {
                         
                     <CustomButton
                             textButton={"Vaciar Carrito"}
-                            onClick={()=>emptyCart()}
-                        />
-                        
+                            onClick={() => emptyCart()}
+                            className={"btn-login"}
+                    />
+                    
+                    <Link to="/nuestrosProductos">
+                        <CustomButton
+                            textButton={"Seguir Comprando"}
+                            className={"btn-login"}
+                    />
+                    </Link>    
+                    
                     <CustomButton
                             textButton={"Finalizar Compra"}
                             onClick={() => push("/checkout")}
-                            className="btn-purchase"
+                            className={"btn-login"}
                     /> 
                 </>
             }
 
             </div>
-            </div>
+ 
             )
 }
 
