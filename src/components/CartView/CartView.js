@@ -9,16 +9,17 @@ import { CartContext } from "../../context/CartContext";
 
 //STYLES:
 import "./CartView.scss";
+import "../../_custom.scss";
 
 const CartView = () => {
   const { carrito, totalPurchase, emptyCart } = useContext(CartContext);
   const { push } = useHistory();
 
   return (
-    <div className="white-container-full">
+    <div className={carrito.length === 0 ? "violet-container" : "white-container-full"}>
       {carrito.length === 0 ? (
         <>
-          <h3 className="cart-view-no-products">
+          <h3>
             EL CARRITO DE COMPRAS ESTÁ VACÍO
           </h3>
 
