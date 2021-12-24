@@ -1,6 +1,6 @@
 # Proyecto E-Commerce BAKERY ♡ en React de Analía Marrollo
 
-El proyecto simula un e-commerce de una tienda de pastelería. El sitio se compone por una página Home de presentación, una página *"Nuestros Productos"* con el catálogo completo y páginas  según la categoría de productos. Adicionalmente contiene una página de *Contacto* para enviar consultas y el usuario lo desea puede registrarse, o iniciar sesión si se encuentra registrado previamente.
+El proyecto simula un e-commerce de una tienda de pastelería. El sitio se compone por una página Home de presentación, una página *"Nuestros Productos"* con el catálogo completo y páginas  según la categoría de productos. Adicionalmente contiene una página de *Contacto* para enviar consultas y si el usuario lo desea puede registrarse, o iniciar sesión si se encuentra registrado previamente.
 
 ## Navegación
 La barra de navegación contiene links al catálogo completo (*Nuestros Productos*) y a las distintas categorías de productos. 
