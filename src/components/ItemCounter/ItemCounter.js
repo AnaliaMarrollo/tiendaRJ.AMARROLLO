@@ -1,14 +1,13 @@
-import React,{useContext} from 'react'
-import CustomButton from '../CustomButton/CustomButton';
-import { CartContext } from '../../context/CartContext';
+import React from "react";
+import CustomButton from "../CustomButton/CustomButton";
 
 //STYLES
-import './ItemCounter.scss'
+import "./ItemCounter.scss";
 
 export default function ItemCounter({ quantity, modifyQuantity, stock }) {
-
-  //quantity y modifyQuantity estado en el ItemDetail
   
+  //quantity y modifyQuantity estado en el ItemDetail
+
   const onIncrement = () => {
     if (quantity < stock && quantity >= 1) {
       modifyQuantity(quantity + 1);

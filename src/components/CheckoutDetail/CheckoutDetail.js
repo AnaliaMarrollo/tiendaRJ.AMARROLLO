@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+
+//CONTEXT:
 import { CartContext } from '../../context/CartContext'
 
 //STYLES:

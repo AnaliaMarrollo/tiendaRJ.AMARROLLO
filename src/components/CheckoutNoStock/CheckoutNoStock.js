@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CustomButton from "../CustomButton/CustomButton";
+
+//STYLES:
 import "../Checkout/Checkout.scss";
 import "../../_custom.scss";
-import CustomButton from "../CustomButton/CustomButton";
 
 const CheckoutNoStock = ({ noStock }) => {
   return (

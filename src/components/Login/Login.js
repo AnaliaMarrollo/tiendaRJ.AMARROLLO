@@ -1,23 +1,23 @@
-import React from 'react'
-import SignIn from '../SignIn/SignIn'
-import SignUp from '../SignUp/SignUp'
+import React from "react";
+import SignIn from "../SignIn/SignIn";
+import SignUp from "../SignUp/SignUp";
 
-import './Login.scss'
-import '../../_custom.scss';
-import '../ContactPage/ContactPage.scss';
+//STYLES:
+import "./Login.scss";
+import "../../_custom.scss";
+import "../ContactPage/ContactPage.scss";
 
 const Login = () => {
-    return (
-        <div className="container-flex-row">
-            <div className="white-container-small">
-                <SignIn />
+  return (
+    <div className="container-flex-row">
+      <div className="violet-container shorter-container">
+        <SignUp />
+      </div>
+      <div className="white-container-small">
+        <SignIn />
+      </div>
+    </div>
+  );
+};
 
-                </div>
-            <div className="white-container-small">
-            <SignUp />
-            </div>
-        </div>
-    )
-}
-
-export default Login
+export default Login;

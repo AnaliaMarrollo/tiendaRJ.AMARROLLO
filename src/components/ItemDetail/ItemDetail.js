@@ -2,10 +2,14 @@ import React, { useState, useContext } from "react";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import { useHistory } from "react-router-dom";
 import CustomButton from "../CustomButton/CustomButton";
+
+//CONTEXT:
 import { CartContext } from "../../context/CartContext";
 
-//STYLES
+//STYLES:
 import "./ItemDetail.scss";
+import NoStock from "../NoStock/NoStock";
+import LastItemInStock from "../LastItemInStock/LastItemInStock";
 
 const ItemDetail = ({
   id,
@@ -16,7 +20,6 @@ const ItemDetail = ({
   presentation,
   stock,
 }) => {
-  //useStory for buttons: go Back, go to Home and go to Cart
   const { push, goBack } = useHistory();
 
   //STATES
@@ -78,10 +81,11 @@ const ItemDetail = ({
                     />
                   </>
                 ) : (
-                  <>
+                    <>
+                    {stock === 1 && <LastItemInStock/>}  
                     {stock === 0 ? (
                       <>
-                        <p className="product-stock mt-1">SIN STOCK</p>
+                        <NoStock/>
                       </>
                     ) : (
                       <>

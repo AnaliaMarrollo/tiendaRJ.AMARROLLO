@@ -1,37 +1,33 @@
-//colors
+//COLORS:
 $color-pink: #ffa5d8;
-
-// $color-light-blue:#7eb8da; 
-// $color-light-aqua: #92ddea;
-// $color-lila: #be9ddf;
 $color-violet: #9579d1;
+$color-light-black: lighten(black, 20%);
 
-$color-light-black:lighten(black, 20%);
+//SHADOWS:
+$element-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.7);
+$container-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.1);
 
-//shadows
-$element-shadow: 0 0 .75rem rgba(0, 0, 0, 0.7);
-$container-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
-
-//button
-%buttton-black-violet{
-    border: solid black .2rem;
+//BUTTONS:
+%buttton-black-violet {
+    border: solid black 0.2rem;
     background-color: black;
     color: white;
-    border-radius: .25rem;
-    font-size: .8rem;
-    margin: 0 .3rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    margin: 0 0.3rem;
 
-        &:hover {
-            border: solid $color-violet .2rem;
-            background-color: $color-violet;
-            color:white;
-        }
+    &:hover {
+        border: solid $color-violet 0.2rem;
+        background-color: $color-violet;
+        color: white;
+    }
 
-        outline: none;
+    outline: none;
 }
 
 .btn-link {
     text-decoration: none;
+
     &:hover {
         text-decoration: none;
     }
@@ -44,12 +40,12 @@ $container-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
     }
 }
 
-//containers
-%white-container{
-            background-color: white;
-            box-shadow: $container-shadow;
-            margin-top: 2rem;
-            padding: 1rem;
+//CONTAINERS:
+%white-container {
+    background-color: white;
+    box-shadow: $container-shadow;
+    margin-top: 2rem;
+    padding: 1rem;
 }
 
 %container-flex-row {
@@ -62,15 +58,14 @@ $container-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
     flex-direction: column;
 }
 
-
-.white-container-full{
+.white-container-full {
     @extend %white-container;
     width: 90%;
     min-height: 80vh;
     margin: auto;
 }
 
-.white-container-small{
+.white-container-small {
     @extend %white-container;
     width: 70%;
     margin: auto;
@@ -81,52 +76,54 @@ $container-shadow: 0 0 .75rem rgba(0, 0, 0, 0.1);
     @extend %white-container;
     background-color: lighten($color-violet, 5%);
     color: whitesmoke;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     width: 80%;
     margin: 1rem auto;
 }
 
-//titles
-.white-title{
+//TITLES:
+.white-title {
     @extend %title;
 }
 
-%title{
+%title {
     text-transform: uppercase;
     font-weight: bolder;
     text-align: center;
     margin-top: 2rem;
 }
 
-.title{
+.title {
     @extend %title;
-    text-decoration: .2rem $color-violet underline;
-    &-small{
-        font-size: .8rem;
+    text-decoration: 0.2rem $color-violet underline;
+
+    &-small {
+        font-size: 0.8rem;
         text-decoration: none;
     }
 }
 
-//lists
-.list{
-text-align: left;
-&::marker{
-    font-size: 1.5rem;
-    color: $color-pink;
-}
+//LISTS:
+.list {
+    text-align: left;
+
+    &::marker {
+        font-size: 1.5rem;
+        color: $color-pink;
+    }
 }
 
-//inputs
-input::placeholder, textarea::placeholder{
+//INPUTS:
+input::placeholder,
+textarea::placeholder {
     color: $color-violet;
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     font-weight: bolder;
 }
 
-//link 
-
+//LINK:
 .link {
     text-decoration: none;
 }

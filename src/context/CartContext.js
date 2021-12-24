@@ -1,12 +1,11 @@
-import React, { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect, createContext } from "react";
 
-export const CartContext = createContext()
+export const CartContext = createContext();
 
-const initialCart = JSON.parse(localStorage.getItem('carrito')) || []
+const initialCart = JSON.parse(localStorage.getItem("carrito")) || [];
 
-export const CartProvider = ({ children}) => {
-    
-const [carrito, setCarrito] = useState(initialCart);
+export const CartProvider = ({ children }) => {
+  const [carrito, setCarrito] = useState(initialCart);
 
   //ADD ITEM
   const addToCart = (item) => {
@@ -18,65 +17,55 @@ const [carrito, setCarrito] = useState(initialCart);
     setCarrito(carrito.filter((buscarProducto) => buscarProducto.id !== id));
   };
 
-//IS IN CART?
+  //IS IN CART?
   const productInCart = (id) => {
     return carrito.some((buscaProducto) => buscaProducto.id === id);
   };
 
-//INCREMENT QUANTITY   
-  const incrementQuantity = (id) => {
-    const indxIQ = carrito.findIndex(buscarIndex => buscarIndex.id === id);
-    let newCarrito = [...carrito];
-    newCarrito[indxIQ].quantity = newCarrito.quantity + 1;
-    console.log(indxIQ)
-    setCarrito(newCarrito);
-  }
-  
-//DECREMENT QUANTITY
-  const decrementQuantity = (id) => {
-    const indxDQ = carrito.findIndex(buscarIndex => buscarIndex.id === id);
-    let newCarrito = [...carrito];
-    newCarrito[indxDQ].quantity = newCarrito.quantity + 1;
-    console.log(indxDQ)
-    setCarrito(newCarrito);
-  }  
-
-//CLEAR 
+  //CLEAR
   const emptyCart = () => {
     setCarrito([]);
   };
 
   //TOTAL QUANTITY IN CART
   const totalQuantity = () => {
-    return carrito.reduce((acumulador, producto) => acumulador + producto.quantity, 0);
+    return Number(
+      carrito.reduce(
+        (acumulador, producto) => acumulador + producto.quantity,
+        0
+      )
+    );
   };
 
-//TOTAL PURCHASE
+  //TOTAL PURCHASE
   const totalPurchase = () => {
-    return carrito.reduce((acumulador, producto) => acumulador + producto.price * producto.quantity, 0);
+    return Number(
+      carrito.reduce(
+        (acumulador, producto) =>
+          acumulador + producto.price * producto.quantity,
+        0
+      )
+    );
   };
 
-//LOCAL STORAGE
+  //LOCAL STORAGE
   useEffect(() => {
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
-    
-    return (
-        <CartContext.Provider value={
-        {
-          carrito,
-          addToCart,
-          productInCart,
-          incrementQuantity,
-          decrementQuantity,
-          removeFromCart,
-          emptyCart,
-          totalQuantity,
-          totalPurchase
-        }
-        }>
-            {children}
-        </CartContext.Provider>
-    )
-}
 
+  return (
+    <CartContext.Provider
+      value={{
+        carrito,
+        addToCart,
+        productInCart,
+        removeFromCart,
+        emptyCart,
+        totalQuantity,
+        totalPurchase,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};

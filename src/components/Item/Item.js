@@ -2,6 +2,8 @@ import React from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import LastItemInStock from "../LastItemInStock/LastItemInStock";
+import NoStock from "../NoStock/NoStock";
 
 //STYLES:
 import "./Item.scss";
@@ -28,9 +30,12 @@ const Item = ({ product }) => {
 
         <Card.Text>Presentación: {product.presentation}</Card.Text>
         {product.stock === 0 ? (
-          <Card.Text>SIN STOCK</Card.Text>
+          <NoStock/>
         ) : (
-          <Card.Text>Stock disponible {product.stock}</Card.Text>
+            <>
+            <Card.Text>Stock disponible {product.stock}</Card.Text>
+            {product.stock === 1 && <LastItemInStock/>}
+            </> 
         )}
       </Card.Body>
       <Link

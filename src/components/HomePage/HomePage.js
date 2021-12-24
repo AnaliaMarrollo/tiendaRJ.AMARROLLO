@@ -1,17 +1,15 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import Carrousel from '../Carrousel/Carrousel';
-import CustomButton from '../CustomButton/CustomButton';
+import React from "react";
+import Carrousel from "../Carrousel/Carrousel";
 
-//STYLES 
-import "./HomePage.scss"
+//STYLES
+import "./HomePage.scss";
+
 const HomePage = () => {
+  return (
+    <>
+      <Carrousel />
+    </>
+  );
+};
 
-    return (
-        <>
-            <Carrousel/>
-        </>
-    )
-}
-
-export default HomePage
+export default HomePage;

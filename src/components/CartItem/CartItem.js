@@ -1,13 +1,14 @@
-import React, { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { faGratipay } from "@fortawesome/free-brands-svg-icons";
 
-//STYLES
+//CONTEXT:
+import { CartContext } from "../../context/CartContext";
+
+//STYLES:
 import "./CartItem.scss";
 
-const CartItem = ({ id, name, img, presentation, quantity, price}) => {
+const CartItem = ({ id, name, img, presentation, quantity, price, stock}) => {
   const { removeFromCart } = useContext(CartContext);
 
   return (

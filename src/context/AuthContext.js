@@ -9,13 +9,13 @@ import {
 import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/config";
 import Success from "../components/Success/Succes";
-import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
+
+//SWEET ALERT:
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  
   const [error, setError] = useState("");
 
   const [user, setUser] = useState();
@@ -23,11 +23,9 @@ export const AuthProvider = ({ children }) => {
 
   const provider = new GoogleAuthProvider();
 
-  let errorsAuth = {};
-
   const logoutSuccess = () => {
-    <Success message={"Cierre de sesión exitoso"}/>
-  }
+    <Success message={"Cierre de sesión exitoso"} />;
+  };
 
   //LOGIN SIGN UP
   const signup = (email, password) => {
@@ -35,14 +33,14 @@ export const AuthProvider = ({ children }) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user)
+        console.log(user);
         Swal.fire({
-        title: 'Bienvenidx!',
-        text: 'Usuario creado exitosamente',
-        icon: 'success',
-        confirmButtonText: 'OK'
-        })
-          setError("");
+          title: "GRACIAS POR REGISTRARTE",
+          text: "Usuario creado exitosamente",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        setError("");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -62,8 +60,8 @@ export const AuthProvider = ({ children }) => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        setError(errorCode)
-        console.log(errorCode)
+        setError(errorCode);
+        console.log(errorCode);
       });
   };
 
@@ -75,8 +73,9 @@ export const AuthProvider = ({ children }) => {
         logoutSuccess();
       })
       .catch((error) => {
-        const errorLogout = "Parece que hubo un problema con el cierre de sesión, intenta nuevamente"
-        setError(errorLogout)
+        const errorLogout =
+          "Parece que hubo un problema con el cierre de sesión, intenta nuevamente";
+        setError(errorLogout);
       });
   };
 
@@ -89,14 +88,8 @@ export const AuthProvider = ({ children }) => {
         setUser(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
-        const emailError = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
         alert(errorMessage);
-        // ...
       });
   };
 

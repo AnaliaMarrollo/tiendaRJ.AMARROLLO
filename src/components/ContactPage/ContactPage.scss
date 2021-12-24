@@ -1,4 +1,4 @@
-@import '../../custom';
+@import "../../custom";
 
 .contact-page-container {
     min-height: 100vh;
@@ -17,11 +17,11 @@
         outline: none;
 
         &-errors {
-            border: solid $color-violet .3rem;
+            border: solid $color-violet 0.3rem;
         }
 
         &-ok {
-            border: solid $color-pink .3rem;
+            border: solid $color-pink 0.3rem;
         }
 
         &-comments {
@@ -30,34 +30,33 @@
     }
 
     &-message {
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: bolder;
         color: white;
-        margin: .25rem;
+        margin: 0.25rem;
         width: 15rem;
         margin: auto;
-        padding: .1rem;
+        padding: 0.1rem;
         padding-left: 1rem;
-        border-radius: .25rem;
-        margin-top: .5rem;
+        border-radius: 0.25rem;
+        margin-top: 0.5rem;
 
         &-error {
             background-color: darken($color-violet, 10%);
         }
 
         &-success {
-
             background-color: darken($color-pink, 10%);
         }
 
-        &-logged{
+        &-logged {
             background-color: lighten($color-violet, 10%);
         }
     }
 
     &-span {
         margin-top: 1rem;
-        text-decoration: .25rem $color-violet underline;
+        text-decoration: 0.25rem $color-violet underline;
 
         &-google {
             margin-bottom: 1rem;
@@ -68,10 +67,10 @@
 
 .form .btn-form-submit {
     //SUBMIT STYLES!
-    border: solid .25rem $color-violet;
+    border: solid 0.25rem $color-violet;
     background-color: whitesmoke;
     color: $color-violet;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     font-weight: bolder;
 
     &:hover {
@@ -82,6 +81,5 @@
 
 .btn-login {
     @extend %buttton-black-violet;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 }
-

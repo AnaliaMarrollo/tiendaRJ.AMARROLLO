@@ -1,6 +1,6 @@
 @import '../../custom';
 
-.cart-view{
+.cart-view {
     width: 60%;
     min-height: 50vh;
     margin: 7rem auto;
@@ -8,21 +8,22 @@
     background-color: whitesmoke;
     box-shadow: $container-shadow;
 
-    &-container{
+    &-container {
         min-height: 100vh;
     }
 
-    &-title{
+    &-title {
         font-size: 1.2rem;
         text-decoration: underline $color-violet .2rem;
         font-weight: bolder;
     }
-    
-    &-no-products{
+
+    &-no-products {
         font-size: 1rem;
         color: $color-violet;
     }
-    &-total{
+
+    &-total {
         font-size: 1.2rem;
         font-weight: bolder;
         margin-top: 1rem;

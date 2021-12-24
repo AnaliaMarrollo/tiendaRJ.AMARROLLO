@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
 import { db } from "../../firebase/config";
 import {
   collection,
@@ -16,6 +15,9 @@ import { Link, Redirect } from "react-router-dom";
 import CheckoutSuccess from "../CheckoutSuccess/CheckoutSuccess";
 import CheckoutNoStock from "../CheckoutNoStock/CheckoutNoStock";
 import CheckoutDetail from "../CheckoutDetail/CheckoutDetail";
+
+//CONTEXT:
+import { CartContext } from "../../context/CartContext";
 import { AuthContext } from "../../context/AuthContext";
 
 //FORMIK AND YUP:
@@ -148,7 +150,7 @@ const Checkout = () => {
   }
 
   if (loading) {
-    return <Loader />;
+    return <Loader textLoader={ "Generando código de compra"}/>;
   }
 
   return (

@@ -1,61 +1,59 @@
 @import "../../custom";
 
 .navbar-brand {
-    font-weight: 800;
-    font-size: 2rem;
-    text-decoration: none;
-    text-align: center;
-    color: $color-light-black;
+  font-weight: 800;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  color: $color-light-black;
 
-    &:hover {
-        color: $color-light-black;
-    }
+  &:hover {
+    color: $color-light-black;
+  }
 }
 
 .navbar-nav {
-    width: 100%;
+  width: 100%;
 }
 
 .nav {
-    &-link {
-        text-decoration: none;
-        color: $color-light-black;
-        padding: .5rem;
-        text-transform: uppercase;
-        font-size: .8rem;
+  &-link {
+    text-decoration: none;
+    color: $color-light-black;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 
-        &:hover {
-            color: $color-light-black;
-        }
+    &:hover {
+      color: $color-light-black;
     }
+  }
 
-    &-user {
-        font-size: .8rem;
-        text-align: right;
-        background-color: #f8f9fa;
-    }
-
+  &-user {
+    font-size: 0.8rem;
+    text-align: right;
+    background-color: #f8f9fa;
+  }
 }
 
 .active {
-    font-weight: bolder;
-    background-color: $color-pink;
+  font-weight: bolder;
 }
 
 .activeLinkBrand {
-    background-color: none;
+  background-color: none;
 }
 
 .activeLinkCart {
-    border: none;
+  border: none;
 }
 
 .no-cart {
-    width: 3rem;
+  width: 3rem;
 }
 
 .btn-logout {
-    @extend %buttton-black-violet;
-    width: auto;
-    height: 2rem;
+  @extend %buttton-black-violet;
+  width: auto;
+  height: 2rem;
 }

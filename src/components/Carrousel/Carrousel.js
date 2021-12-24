@@ -1,13 +1,14 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import carrousel1 from "../../assets/img-json/carrousel1.jpg";
-import carrousel2 from "../../assets/img-json/carrousel2.jpg";
-import carrousel3 from "../../assets/img-json/carrousel3.jpg";
-import carrousel4 from "../../assets/img-json/carrousel4.jpg";
-import carrousel5 from "../../assets/img-json/carrousel5.jpg";
+import carrousel1 from "../../assets/images/carrousel1.jpg";
+import carrousel2 from "../../assets/images/carrousel2.jpg";
+import carrousel3 from "../../assets/images/carrousel3.jpg";
+import carrousel4 from "../../assets/images/carrousel4.jpg";
+import carrousel5 from "../../assets/images/carrousel5.jpg";
 import CustomButton from "../CustomButton/CustomButton";
 
+//STYLES:
 import "./Carrousel.scss";
 
 const Carrousel = () => {

@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import Success from "../Success/Succes";
 import { Redirect } from "react-router";
-import { set } from "lodash";
-import CustomButton from "../CustomButton/CustomButton";
 
-import '../../_custom.scss';
-import '../ContactPage/ContactPage.scss'
+//CONTEXT:
+import { AuthContext } from "../../context/AuthContext";
+
+//STYLES:
+import "../../_custom.scss";
+import "../ContactPage/ContactPage.scss";
 
 const SignIn = () => {
   const { login, logged, error, googleAuth } = useContext(AuthContext);
@@ -19,7 +19,7 @@ const SignIn = () => {
       {logged ? (
         <Redirect to={"/"} />
       ) : (
-        <form className="form" >
+        <form className="form">
           <h5 className="title">Iniciar Sesión</h5>
           <span className="form-span">Email</span>
           <input
@@ -34,10 +34,14 @@ const SignIn = () => {
             <p className="form-message form-message-error">Mail inválido</p>
           )}
           {error === "auth/email-already-in-use" && (
-            <p className="form-message form-message-error">Mail ya registrado</p>
+            <p className="form-message form-message-error">
+              Mail ya registrado
+            </p>
           )}
           {error === "auth/user-not-found" && (
-            <p className="form-message form-message-error">Usuario no encontrado</p>
+            <p className="form-message form-message-error">
+              Usuario no encontrado
+            </p>
           )}
 
           <span className="form-span">Contraseña</span>
@@ -53,23 +57,24 @@ const SignIn = () => {
             <p className="form-message form-message-error">
               La contraseña debe contener más de 6 caracteres
             </p>
-            )}
-            {error === "auth/internal-error" && (
+          )}
+          {error === "auth/internal-error" && (
             <p className="form-message form-message-error">
-               Debe ingresar una contraseña
+              Debe ingresar una contraseña
             </p>
-            )}
-            {error === "auth/wrong-password" && (
+          )}
+          {error === "auth/wrong-password" && (
             <p className="form-message form-message-error">
-               Contraseña inválida
+              Contraseña inválida
             </p>
-            )}
-{error === "auth/too-many-requests" && (
+          )}
+          {error === "auth/too-many-requests" && (
             <p className="form-message form-message-error">
-               Has superado el límite de intentos, prueba nuevamente en unos minutos
+              Has superado el límite de intentos, prueba nuevamente en unos
+              minutos
             </p>
-            )}
-            
+          )}
+
           <button
             type="button"
             className="btn-login"
@@ -81,26 +86,9 @@ const SignIn = () => {
           <span className="form-span form-span-google">
             O iniciar sesión con:
           </span>
-
-          <button
-            type="button"
-            className="btn-login"
-            onClick={googleAuth}
-          >
+          <button type="button" className="btn-login" onClick={googleAuth}>
             Google
           </button>
-
-          {/* <CustomButton
-        textButton={"Google"}
-        onClick={()=>googleAuth}
-        />
-        
-        <div className="modal-footer">
-          <CustomButton
-            textButton={"Iniciar Sesión"}
-            onClick={() => login(email, password)}
-        /> */}
-          {/* </div> */}
         </form>
       )}
     </div>

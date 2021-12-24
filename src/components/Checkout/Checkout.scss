@@ -1,6 +1,6 @@
 @import '../../custom';
 
-.checkout-container{
+.checkout-container {
     width: 90%;
     margin: auto;
     min-height: 100vh;
@@ -23,13 +23,12 @@
     }
 }
 
-.img-no-stock{
+.img-no-stock {
     width: 15%;
     height: auto;
 }
 
-.container-user-logged{
+.container-user-logged {
     @extend %container-flex-row;
     justify-content: center;
 }
-

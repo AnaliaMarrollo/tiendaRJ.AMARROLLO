@@ -1,0 +1,8 @@
+@import "../../custom";
+
+.no-stock-item-span {
+    background-color: darken($color-violet, 20%);
+    padding: .25rem;
+    border-radius: .25rem;
+    color: whitesmoke;
+}
