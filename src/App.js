@@ -10,7 +10,8 @@ import Error404 from "./components/Error404/Error404";
 import CartView from "./components/CartView/CartView";
 import Footer from "./components/Footer/Footer";
 import Checkout from "./components/Checkout/Checkout";
-import Login from "./components/Login/Login";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
 
 //CONTEXT:
 import { AuthProvider } from "./context/AuthContext";
@@ -39,7 +40,8 @@ function App() {
             <Route exact path="/contacto" component={ContactPage} />
             <Route exact path="/cart" component={CartView} />
             <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/login" component={Login}/>
+            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/signup" component={SignUp}/>
             <Route path="*" component={Error404} />
           </Switch>
 

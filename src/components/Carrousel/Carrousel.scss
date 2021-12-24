@@ -6,13 +6,11 @@
         background-color: whitesmoke;
     }
     &-img{
-       height: 80vh;
-       width: 60%;
        margin: auto;
        background-color: whitesmoke;
     }
     &-caption{
-                height: 70vh;
+                height: 50vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -30,4 +28,46 @@
 .btn-carrousel-welcome{
    @extend %buttton-black-violet;
 }
+
+    @media only screen and (max-width: 360px) {
+        .carrousel {
+            &-img {
+                min-height: 50vh;
+                width: 100%;
+            }
+        }
+    }
+    @media only screen and (min-width: 360px) {
+        .carrousel {
+                &-img {
+                    min-height: 50vh;
+                    width: 100%;
+        }
+    }
+}
+
+  @media only screen and (min-width: 480px) {
+      .carrousel {
+          &-img {
+
+              width: 90%;
+          }
+      }
+  }
+
+    @media only screen and (min-width: 600px) {
+        .carrousel {
+            &-img {
+                width: 80%;
+            }
+        }
+    }
+
+        @media only screen and (min-width: 720px) {
+            .carrousel {
+                &-img {
+                    width: 60%;
+                }
+            }
+        }
 

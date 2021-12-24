@@ -21,7 +21,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="white-container-full">
       <form className="form" onSubmit={handleSignup}>
         <h5 className="title">Registrarme</h5>
         <span className="form-span">Email</span>
@@ -55,7 +55,11 @@ const SignUp = () => {
             La contraseña debe contener más de 6 caracteres
           </p>
         )}
-        <input type="submit" value="Enviar" className="btn-login btn-container-violet" />
+        <input
+          type="submit"
+          value="Enviar"
+          className="btn-login btn-container-violet"
+        />
       </form>
     </div>
   );

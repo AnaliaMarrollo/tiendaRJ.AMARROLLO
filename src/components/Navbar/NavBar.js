@@ -41,17 +41,19 @@ function NavBar() {
                 eventKey="2"
                 as={Link}
                 to="/"
-                
                 className="nav-link"
                 id="home"
               >
                 Inicio
               </Nav.Link>
 
-              <Nav.Link eventKey="3" as={Link} to="/nuestrosProductos"
-              
+              <Nav.Link
+                eventKey="3"
+                as={Link}
+                to="/nuestrosProductos"
                 className="nav-link"
-                id="nuestros-productos">
+                id="nuestros-productos"
+              >
                 Nuestros Productos
               </Nav.Link>
 
@@ -59,7 +61,6 @@ function NavBar() {
                 eventKey="4"
                 as={Link}
                 to="/category/tortas"
-                
                 className="nav-link"
                 id="tortas"
               >
@@ -70,7 +71,6 @@ function NavBar() {
                 eventKey="5"
                 as={Link}
                 to="/category/cookies"
-                
                 className="nav-link rounded"
                 id="cookies"
               >
@@ -81,7 +81,6 @@ function NavBar() {
                 eventKey="6"
                 as={Link}
                 to="/category/especiales"
-                
                 className="nav-link rounded"
                 id="edicion-limitada"
               >
@@ -92,7 +91,6 @@ function NavBar() {
                 eventKey="7"
                 as={Link}
                 to="/contacto"
-                
                 className="nav-link rounded"
                 id="contacto"
               >
@@ -105,8 +103,7 @@ function NavBar() {
                 <Nav.Link
                   eventKey="8"
                   as={Link}
-                    to="/cart"
-                    
+                  to="/cart"
                   className="nav-link nav-cart rounded"
                   id="cart"
                 >
@@ -123,12 +120,20 @@ function NavBar() {
                   <Nav.Link
                     eventKey="9"
                     as={Link}
-                      to="/login"
-                      
+                    to="/signin"
                     className="nav-link rounded"
-                    id="login"
+                    id="signin"
                   >
-                    Mi cuenta
+                    Iniciar Sesión
+                  </Nav.Link>
+                  <Nav.Link
+                    eventKey="10"
+                    as={Link}
+                    to="/signup"
+                    className="nav-link rounded"
+                    id="singup"
+                  >
+                    Registrarme
                   </Nav.Link>
                 </>
               )}

@@ -15,7 +15,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <div className="violet-container shorter-container">
       {logged ? (
         <Redirect to={"/"} />
       ) : (
